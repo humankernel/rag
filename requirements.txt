@@ -1,0 +1,7 @@
+jupyter
+tqdm # progress bar
+PyMuPDF # pdf
+spacy[cuda12x] # nlp splitter
+pandas
+sentence-transformers # embedding models
+faiss-cpu
