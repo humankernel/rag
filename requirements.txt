@@ -5,3 +5,7 @@ spacy[cuda12x] # nlp splitter
 pandas
 sentence-transformers # embedding models
 faiss-cpu
+streamlit
+accelerate
+bitsandbytes
+flash-attn
