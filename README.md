@@ -4,7 +4,7 @@
 clone repo
 
 ```sh
-git clone git@github.com/humankernel/rag
+git clone https://github.com/humankernel/rag.git
 cd rag
 ```
 
