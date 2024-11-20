@@ -1,0 +1,10 @@
+dataset,system,generator,retriever,rewriter,routing,knowledge_base,overall_correctness
+ipcc report,Prototype,40.00,40.00,40.00,100,0.00,40.00
+ipcc report,ChatPDF,85.00,80.00,80.00,100.00,0,85.00
+ipcc report,Humata,45,20,0,100,0,45
+soberana report,Prototype,45,62.5,16.67,100,0,45
+soberana report,ChatPDF,35,50,16.67,100,33.33,40
+soberana report,Humata,45,62.5,25,100,0,40
+attention report,Prototype,50,62.5,33.33,100,0,45
+attention report,ChatPDF,70,37.5,58.33,100,25.0,65
+attention report,Humata,40,37.5,16.67,100,50,35

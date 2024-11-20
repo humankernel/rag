@@ -1,0 +1,140 @@
+[
+    {
+        "question": "What was the vaccine efficacy against symptomatic disease in the heterologous combination?",
+        "answer": "The vaccine efficacy against symptomatic disease in the heterologous combination was 92.0% (95% CI 80.4 – 96.7).",
+        "context": [
+            "replaced by Delta near the trial's end. Vaccine efficacy in the heterologous combination was 92.0% (95%CI 80.4-96.7)"
+        ]
+    },
+    {
+        "question": "What percentage of participants had serologic evidence of a previous SARS-CoV-2 infection at baseline?",
+        "answer": "At baseline, serologic evidence of a previous SARS-CoV-2 infection was detected in 0.3% of participants.",
+        "context": [
+            "and risk of severe COVID-19). At baseline, serologic evidence of a revious SARS-CoV-2 infection was"
+        ]
+    },
+    {
+        "question": "What is the efficacy of the vaccine in preventing severe COVID-19, considering only the cases where hospitalization or death occurred?",
+        "answer": "The efficacy of the vaccine in preventing severe COVID-19 was 74.9%.",
+        "context": [
+            "excellent 92.0%. Efficacy to prevent severe COVID-19"
+        ]
+    },
+    {
+        "question": "What was the efficacy of the vaccine against symptomatic COVID-19 disease in participants receiving a combination of two different vaccines, as measured by the percentage of participants who developed symptomatic disease?",
+        "answer": "The efficacy of the vaccine against symptomatic COVID-19 disease in participants receiving a combination of two different vaccines (heterologous combination) was 92.0% (95% CI 80.4 – 96.7).",
+        "context": [
+            "Vaccine Efficacy (95% CI)    92.0 (80.4; 96.7)"
+        ]
+    },
+    {
+        "question": "What is the reason for excluding individuals who have received a COVID-19 vaccine within the last 30 days in an open-label phase 1 clinical trial?",
+        "answer": "Individuals who have received a COVID-19 vaccine within the last 30 days were excluded from the study to ensure that there was no interference with the safety and efficacy analyses of the vaccine being tested. This exclusion criterion helps to avoid potential confounding factors that could affect the study results.",
+        "context": [
+            "were included. Exclusion criteria were previous receipt of a COVID-19 vaccine, acute febrile illness or infectious disease, pregnancy, puerperium or breastfeeding, any uncontrolled non-communicable disease, history of a severe allergic reaction to any component of the vacines, current or planned (within 30 days) receipt of"
+        ]
+    },
+    {
+        "question": "What specific time frame is used to calculate vaccine efficacy, and how is it defined in the context of the vaccine administration schedule?",
+        "answer": "Vaccine efficacy was calculated considering the cases occurring in the same calendar period: 14 days after dose 3 in the So2P group and 42 days after the 2nd dose in the placebo group.",
+        "context": [
+            "occurring in the same calendar period (14 days after dose 3 in So2P and 42 days after the 2nd dose in"
+        ]
+    },
+    {
+        "question": "As a researcher from a prestigious institution, I am writing a scientific paper about a medical trial and I want to express my gratitude to the volunteers and clinical experts who contributed to the study. I also want to assure the readers that I have no personal conflicts of interest. Where should I send my proposal for full data sharing?",
+        "answer": "You should send your proposal for full data sharing to the following email addresses: mariaeugenia@ipk.sld.cu, vicente.verez@finlay.edu.cu, or cifi nlay@finlay.edu.cu. These proposals will be reviewed and must be approved by the sponsor.",
+        "context": [
+            "tion. Proposals for full data sharing should be sent to: mariaeugenia@ipk.sld.cu, vicente.verez@finlay.edu.cu or cifinlay@finlay.edu.cu. These proposals will be reviewed and must be approved by the sponsor"
+        ]
+    },
+    {
+        "question": "As a researcher in a developing country, what is a key advantage of the SOBER-ANA vaccines that would make them a more practical choice for our region, where access to cold storage is limited?",
+        "answer": "A key advantage of the SOBER-ANA vaccines is that they are straightforward to manufacture and have logistical advantages in terms of storage and distribution, as they are stable and permit the use of a conventional 2 – 8 °C cold-chain.",
+        "context": [
+            "against SARS CoV-2, and SOBERANA-Plus are straightforward to manufacture and have logistical advantages in terms of storage and distribution, due to being stable and permitting the use of a conventional 2-8 ℃ cold-chain. The vaccines are"
+        ]
+    },
+    {
+        "question": "Who supervised and monitored the trial, and who wrote the manuscript?",
+        "answer": "The trial was supervised and monitored by the Independent Safety Data Monitoring Board (ISDMB). The decision to submit the paper was made by VVB and METR.",
+        "context": [
+            "data accuracy. An Independent Safety Data Monitoring Board (ISDMB) continuously supervised safety and",
+            " decision to submit the paper."
+        ]
+    },
+    {
+        "question": "What is the purpose of a dictionary?",
+        "answer": "I can not provide an answer based on the provided documents."     
+    },
+    {
+        "question": "How long do solicited systemic AEs last after the third dose?",
+        "answer": "Solicited systemic AEs lasted a median of 2 days after the third dose (25 – 75th percentile: 0.8 – 7.5).",
+        "context": [
+            "for grade 3 ones. Solicited systemic AEs in the vaccine groups lasted a median of 1 day after the first (25-75th percentile: 0-2) and second doses (25-75th percentile:0-3), and 2 days after the third dose (25-75th percentile:"
+        ]
+    },
+    {
+        "question": "What percentage of local adverse events were grade 3?",
+        "answer": "Less than 0.2% of local adverse events were grade 3.",
+        "context": [
+            "97.5% of local adverse events were grade 1 and less than"
+        ]
+    },
+    {
+        "question": "What percentage of participants withdrew their consent after receiving both doses of the treatment?",
+        "answer": "After receiving the first dose, 168 participants (0.38%) withdrew their consent and did not receive the second dose, and after the second dose, 7 participants (0.05%) from the So2P group withdrew their consent.",
+        "context": [
+            "After receiving the first dose, 168 (0,38%) participants withdrew their consent and did not receive the second dose and after that dose, 7 (0,05%) participants from the So2P group withdrew their consent. 412"
+        ]
+    },
+    {
+        "question": "What type of vaccine is being discussed in the context of COVID-19 and its potential applications in preventing other infectious diseases?",
+        "answer": "The type of vaccine being discussed in the context of COVID-19 is the SOBERANA vaccines, which are straightforward to manufacture and may represent an attractive option for use in COVID-19 vaccination programmes. They are also noted for their potential applications in preventing other infectious diseases.",
+        "context": [
+            "group. Two doses of SOBERANA-02 was 69.7% (95%CI 56.5-78.9) and 74.9% (95%CI 33.7-90.5) efficacious against symptomatic and severe COVID-19, respectively. The occurrence of serious and severe adverse events (AE) was very rare and equally distributed between placebo and vaccine groups. Solicited AEs were slightly more frequent in the vaccine group but predominantly local and mostly mild and transient. Interpretation Our results indicate that the straightforward to manufacture SOBERANA vaccines are efficacious in acontext of Beta and Delta VOC circulation, have a favourable safety profile, and may represent an attractive option for"
+        ]
+    },
+    {
+        "question": "What is the name of the vaccine being studied in a phase 2b clinical trial, specifically at the Finlay Vaccine Institute in Havana, Cuba?",
+        "answer": "The name of the vaccine being studied in a phase 2b clinical trial at the Finlay Vaccine Institute in Havana, Cuba, is SOBERANA-02.",
+        "context": [
+            "et al. Safety and immunogenicity of anti-SARS-CoV-2 heterologous scheme with SOBERANA 02 and SOBERANA Plus vaccines: phase",
+            "randomised, placebo-controlled, phase 2b, seamless, clinical trial."
+        ]
+    },
+    {
+        "question": "What percentage of SARS-CoV-2 infections among the study subjects were prevented by the 3-dose vaccination schedule, considering the unique code assigned to each subject ensured confidentiality and data accuracy?",
+        "answer": "The 3-dose vaccination schedule prevented 92.0% of SARS-CoV-2 infections among the study subjects.",
+        "context": [
+            "person-years; 95%CI 2.4-14.5). This means 92.0% VE (95%CI 80.4-96.7%; P < 0.001) for prevention of symptomatic SARS-CoV-2 infection by the 3-dose"
+        ]
+    },
+    {
+        "question": "As a researcher who has worked on high-stakes studies like COVID-19 hospital documentation, I'm reviewing the efficacy of a novel vaccine and need to confirm which laboratory is responsible for confirming COVID-19 through RT-PCR.",
+        "answer": "The laboratory responsible for confirming COVID-19 through RT-PCR is the SARS CoV-2 national reference laboratory at the “Pedro Kourí” Tropical Medical Institute, Havana, Cuba.",
+        "context": [
+            "confirmation was performed by the SARS CoV-2 national reference laboratory at the \"Pedro Kouri\" Tropical Medical Institute, Havana, Cuba."
+        ]
+    },
+    {
+        "question": "As a researcher studying the effects of multi-task learning on patient outcomes, what medical conditions would make a patient ineligible for a program, assuming the patient already has a serious medical condition and is considering a recent paper on this topic?",
+        "answer": "I can not provide an answer based on the provided documents."
+    },
+    {
+        "question": "What measures do you take to ensure data confidentiality and monitor the quality of your clinical trials?",
+        "answer": "To ensure data confidentiality, a unique code was assigned to each subject at enrollment, which guaranteed confidentiality and permitted linking information from both sources. Additionally, the trial was monitored for protocol adherence and observance of Good Clinical Practice by the National Clinical Trials Coordinating Centre (CENCEC), which also oversaw data accuracy. Quality control was further ensured through a monitoring and audit plan that included systematic checks of records and adherence to standard operating procedures.",
+        "context": [
+            "and allow data export. A unique code assigned to each subject at enrolment guaranteed confidentiality and permitted linking information from both sources. The",
+            "The National Clinical Trials Coordinating Centre (CENCEC) monitored the trial for protocol adherence and observance of Good Clinical Practice and oversaw data accuracy. An Independent Safety Data Monitoring",
+            "We developed a monitoring and audit plan for quality control. During site visits, the proper conduct of the trial was verified by assessing adherence to the study protocol, good clinical practise, and standard operating procedures. We systematically checked the completion"
+        ]
+    },
+    {
+        "question": "What is the efficacy for?",
+        "answer": "The efficacy is for preventing symptomatic COVID-19 disease. This is indicated by the reported vaccine efficacy of 92.0% for the heterologous three-dose vaccination schedule.",
+        "context": [
+            "Vaccine Efficacy (95% CI)    92.0 (80.4; 96.7) Vaccine efficacy was defined as (1 - minus the hazard ratio)100%, (Vacrine vs placebo), and the 95% confidence interval was estimated with the use of a stratified Cox proportional hazards model.Table 2: Vaccine Efficacy to prevent symptomatic COVID-19 disease in the Per-Protocol Population (PPP)."
+        ]
+    }
+]

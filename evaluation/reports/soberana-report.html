@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+<style>
+    body{
+  background: #18181B;
+}
+
+.main{
+  font-family: "Noto Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #FDFDFD;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: white;
+}
+
+h3 {
+  font-size: 1.5rem;
+  background: #0c087c;
+  padding: 10px;
+  margin: 0px;
+  border: 1px solid #6b7280;}
+
+.extended-title{
+  width:100%;
+}
+
+#gsk-overview{
+  display:flex;
+}
+
+h4 {
+  font-size: 1rem;
+  background: #27272A;
+  padding: 10px;
+  margin: 0px;
+  border-bottom: 1px solid #6b7280;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 3px;
+  color:#000000;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header > * {
+  margin-inline: 20px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  padding:10px;
+  border: 1px solid #27272A;
+}
+
+.flex-row>div {
+  flex: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+progress[value] {
+  --background: #6D6D6D;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 4px;
+  margin: 0 10px;
+  border-radius: 10em;
+  background: var(--background);
+}
+
+progress[value]::-webkit-progress-bar {
+  border-radius: 10em;
+  background: var(--background);
+}
+
+progress[value]::-webkit-progress-value {
+  border-radius: 10em;
+  background: var(--color);
+}
+
+progress[value]::-moz-progress-bar {
+  border-radius: 10em;
+  background: var(--color);
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin: 20px 0;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #27272A;
+  background-color: #27272A;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #ffffff;
+  font-size:1.2rem;
+}
+
+.tab div {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.tab button:hover {
+  background-color: #18181B;
+}
+
+.tab-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom:-5px;
+}
+
+.tab button.active {
+  background-color: #18181B;
+  border-top: 1px solid #6b7280;
+  border-bottom: 1px solid #18181B;
+  border-left: 1px solid #6b7280;
+  border-right: 1px solid #6b7280;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  background: #18181B;
+  border: 1px solid #27272A;
+  border-top: 1px solid #6b7280;
+  margin-top: -2px;
+}
+
+#gsk-advice {
+  display: flex;
+  justify-content: center;
+}
+
+#gsk-metrics{
+  width:100%;
+}
+
+#recommendation {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #e1ce86;
+  color: #27272A;
+  width:95%;
+  box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 #000000;
+  font-size: 12pt;
+}
+
+.separator {
+  margin: 20px 0;
+}
+
+.separator-border {
+  margin: 20px 0;
+  border-bottom: 1px solid #6b7280;
+}
+
+#gsk-rag{
+  margin: 32px 28px;
+  padding: 12px 24px;
+  background-color: #111516;
+}
+
+.section-container {
+  margin-bottom: 32px;
+}
+
+  .components-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    gap: 0 32px;
+  }
+
+    .component-card {
+      background-color: #14191B;
+      border-radius: 16px;
+      padding: 28px 32px 32px 32px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      margin-top: 32px;
+      flex-grow: 1;
+    }
+
+    .component-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #B1B1B1;
+      padding-bottom: 8px;
+    }
+
+    .component-value {
+      font-size: 32px;
+      font-weight: 500;
+      padding-bottom: 12px;
+    }
+      
+      .text-green {
+        color: #04B543;
+      }
+      
+      .text-orange {
+        color: #E76E0F;
+      }
+      
+      .text-red {
+        color: #EA3829;
+      }
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #464646;
+        color: #E6E6E6;
+        text-align: center;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        top: 150%;
+        left: 50%;
+        margin-left: -60px;
+        font-size: 12px;
+        padding: 12px;
+      }
+      
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+      }
+      
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+      }
+
+    .overall-card {
+      background-color: #026836;
+      border-radius: 16px;
+      padding: 28px 32px 32px 32px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 32px;
+      flex-grow: 1;
+    }
+  
+    .overall-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #E6E6E6;
+      padding: 14px 0 8px 0;
+      text-transform: uppercase;
+     }
+  
+    .overall-value {
+      font-size: 32px;
+      font-weight: 500;
+      padding-bottom: 12px;
+      color: #E6E6E6;
+    }
+
+.section-title {
+  font-size: 12px;
+  color: #B1B1B1;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.section-content {
+  color: #E6E6E6;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.section-card {
+  background-color: #14191B;
+  border-radius: 16px;
+  padding: 28px 32px 32px 32px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.correctness-indicator{
+  padding: 20px;
+  border-radius: 50px;
+  font-size: 16pt;
+  box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 #000000;
+  text-align: center;
+}
+
+.metric-title{
+  margin: -2px;
+  border-bottom: none;
+}
+
+.hist-row {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-around;
+  width: 85%;
+}
+
+.hist-row>div {
+  flex: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.tab-row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#component-table{
+  width:50%;
+  margin-top: 10px;
+}
+
+.green{
+  background-color: #0a980a;
+}
+
+.orange {
+  background-color: #e5b62a;
+}
+
+.red {
+  background-color: #ba0e0e;
+}
+
+.progress-green {
+  --color: #04B543;
+}
+
+.progress-orange {
+  --color: #E76E0F;
+}
+
+.progress-red {
+  --color: #EA3829;
+}
+
+.corr-plot{
+  flex: 1;
+  padding-left: 2%;
+}
+
+.tooltip-text {
+  position: absolute;
+  display: none;
+  visibility: hidden;
+  z-index: 1;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  color: white;
+  font-size: 12px;
+  background-color: #2d3d4c;
+  border-radius: 10px;
+  padding: 10px 15px 10px 15px;
+}
+
+#fade {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+#delay {
+  opacity: 0;
+  transition: opacity 0.2s;
+  transition-delay: 1s;
+}
+
+td {
+  position: relative;
+}
+
+tr:hover .tooltip-text {
+  display: block;
+  visibility: visible;
+}
+
+.tr:hover #fade {
+  opacity: 1;
+}
+
+.tr:hover #delay {
+  opacity: 1;
+}
+
+.callout {
+  padding: 0.5rem 1rem 0.5rem 3rem;
+  background: #D9EDF9;
+  border: 3px solid #0088D1;
+  color: #272eb5;
+  position: relative;
+  max-width: 40rem;
+  border-radius: 10px;
+  margin-top: 10%;
+  font-size: 11pt;
+}
+
+.callout-icon {
+  content: "";
+
+  /* SVG via a data URI! */
+  background-size: cover;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  position: absolute;
+  left: 0.9rem;
+  top: 1.1rem;
+}
+
+.callout-icon svg{
+  fill: #016ca7;
+}
+.callout p+p {
+  margin-top: 1em;
+}
+
+.callout a {
+  color: #272eb5;
+  font-weight: bold;
+}
+
+#gsk-logo {
+  padding-top: 10px;
+}
+</style>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.4.min.js" integrity="sha384-5QIrjQuyo4I/x6DK/Sau33lcA3hT2TCZGr9vbk+2ebd7Da6FnR1amdM+9B5xOrSf" crossorigin="anonymous"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.3.4.min.js" integrity="sha384-tXTWPp/bAKa+K9RPuXh7DNvye0Mv+P+6y4rAMVy+pWapsnXg9UG7g20WZ0N4i28A" crossorigin="anonymous"></script>
+
+
+
+
+
+<div class="main">
+    <div id="gsk-rag" class="dark:text-white dark:bg-zinc-800 rounded border border-gray-500">
+        <div class="header border-b border-b-gray-500">
+            
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" viewBox="0 0 30 15" fill="none" id="gsk-logo">
+                    <path fill="#fff" fill-rule="evenodd"
+                        d="M22.504 1.549a4.196 4.196 0 0 1 2.573-.887v.002a3.783 3.783 0 0 1 2.706 1.086 3.783 3.783 0 0 1 1.126 2.69 3.771 3.771 0 0 1-1.126 2.69 3.77 3.77 0 0 1-2.706 1.085l-4.794.011-2.533 3.467L8.203 15l2.881-3.335a9.829 9.829 0 0 1-4.663-1.68H3.185L0 7.163h3.934C4.263 3.165 8.187 0 12.96 0c2.24 0 4.489.696 6.175 1.909a7.423 7.423 0 0 1 1.882 1.919 4.194 4.194 0 0 1 1.487-2.28ZM7.05 3.249l3.91 3.915h1.505L7.89 2.584a7.773 7.773 0 0 0-.84.665Zm4.079-2.008 5.923 5.923h1.503l-6.086-6.087c-.45.023-.898.078-1.34.164ZM4.574 8.226h-1.77l.784.693h1.584a8.454 8.454 0 0 1-.598-.693Zm9.479 0H5.984c1.469 1.477 3.656 2.377 5.977 2.422l2.092-2.422Zm-2.458 4.472 5.492-1.902 1.878-2.569h-3.508l-3.862 4.47Zm10.361-5.552h3.265a2.714 2.714 0 0 0 1.747-4.648 2.711 2.711 0 0 0-1.888-.773 3.127 3.127 0 0 0-3.123 3.124v2.297Zm3.659-3.73a.677.677 0 1 1-.134 1.348.677.677 0 0 1 .134-1.348Z"
+                        clip-rule="evenodd" />
+                </svg>
+            <h1>RAG Evaluation Toolkit</h1>
+        </div>
+        
+        <div class="section-container">
+            <div class="components-container">
+                
+                <div class="component-card">
+                    <div class="component-title">GENERATOR</div>
+                    <div class="component-value tooltip  text-red ">
+                        25.0%
+                            <span class="tooltiptext" id="fade">The Generator is the LLM inside the RAG to generate the answers.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=25.0 class=" progress-red ">25.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">RETRIEVER</div>
+                    <div class="component-value tooltip  text-red ">
+                        25.0%
+                            <span class="tooltiptext" id="fade">The Retriever fetches relevant documents from the knowledge base according to a user query.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=25.0 class=" progress-red ">25.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">REWRITER</div>
+                    <div class="component-value tooltip  text-red ">
+                        0.0%
+                            <span class="tooltiptext" id="fade">The Rewriter modifies the user query to match a predefined format or to include the context from the chat history.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=0.0 class=" progress-red ">0.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">ROUTING</div>
+                    <div class="component-value tooltip  text-green ">
+                        100.0%
+                            <span class="tooltiptext" id="fade">The Router filters the query of the user based on his intentions (intentions detection).</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=100.0 class=" progress-green ">100.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">KNOWLEDGE_BASE</div>
+                    <div class="component-value tooltip  text-orange ">
+                        66.67%
+                            <span class="tooltiptext" id="fade">The knowledge base is the set of documents given to the RAG to generate the answers. Its scores is computed differently from the other components: it is the difference between the maximum and minimum correctness score across all the topics of the knowledge base.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=66.66666666666667 class=" progress-orange ">66.67%</progress>
+                    </div>
+                </div>
+                
+                <div class="overall-card">
+                    <div class="overall-title">Overall Correctness Score</div>
+                    <div class="overall-value">25%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">RECOMMENDATION</div>
+                <span class="section-content">Based on the provided scores, I recommend focusing on improving the &#34;Others&#34; topic, as it has the highest score among all topics, indicating that the current knowledge base is weak in this area. To improve the overall performance of the RAG system, I suggest investing more effort in expanding and enhancing the knowledge base with high-quality information related to the &#34;Others&#34; topic.</span>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">CORRECTNESS BY TOPIC</div>
+                    <script type="text/javascript">
+        (function() {
+  const fn = function() {
+    Bokeh.safely(function() {
+      (function(root) {
+        function embed_document(root) {
+        const docs_json = '{"fd707858-d5b7-43d4-9af6-d68350c5adde":{"version":"3.4.3","title":"Bokeh Application","roots":[{"type":"object","name":"Figure","id":"p1435","attributes":{"height":350,"width_policy":"max","x_range":{"type":"object","name":"DataRange1d","id":"p1437","attributes":{"start":0}},"y_range":{"type":"object","name":"FactorRange","id":"p1444","attributes":{"factors":["Covid-19 Vaccine","Covid-19 Vaccine Efficacy","Others","Vaccine Safety Study"]}},"x_scale":{"type":"object","name":"LinearScale","id":"p1445"},"y_scale":{"type":"object","name":"CategoricalScale","id":"p1446"},"title":{"type":"object","name":"Title","id":"p1442","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1464","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1432","attributes":{"selected":{"type":"object","name":"Selection","id":"p1433","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1434"},"data":{"type":"map","entries":[["correctness",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAAANEAAAAAAAAAAAKqqqqqqqkBAqqqqqqqqQEA="},"shape":[4],"dtype":"float64","order":"little"}],["metadata_values",["Covid-19 Vaccine","Covid-19 Vaccine Efficacy","Others","Vaccine Safety Study"]],["colors",["#d9ef8b","#a50026","#006837","#006837"]]]}}},"view":{"type":"object","name":"CDSView","id":"p1465","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1466"}}},"glyph":{"type":"object","name":"HBar","id":"p1461","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"fill_color":{"type":"value","value":"#14191B"}}},"nonselection_glyph":{"type":"object","name":"HBar","id":"p1462","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#14191B"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"HBar","id":"p1463","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#14191B"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1473","attributes":{"data_source":{"id":"p1432"},"view":{"type":"object","name":"CDSView","id":"p1474","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1475"}}},"glyph":{"type":"object","name":"HBar","id":"p1470","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"HBar","id":"p1471","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"HBar","id":"p1472","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1483","attributes":{"visible":false,"data_source":{"type":"object","name":"ColumnDataSource","id":"p1477","attributes":{"selected":{"type":"object","name":"Selection","id":"p1478","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1479"},"data":{"type":"map","entries":[["x",[0]],["y",[0]]]}}},"view":{"type":"object","name":"CDSView","id":"p1484","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1485"}}},"glyph":{"type":"object","name":"Line","id":"p1480","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_width":2,"line_dash":[6]}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1481","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_alpha":0.1,"line_width":2,"line_dash":[6]}},"muted_glyph":{"type":"object","name":"Line","id":"p1482","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_alpha":0.2,"line_width":2,"line_dash":[6]}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1443","attributes":{"tools":[{"type":"object","name":"HoverTool","id":"p1457","attributes":{"renderers":"auto","tooltips":[["topic","@metadata_values"],["Correctness","@correctness{0.00}"]]}}]}},"toolbar_location":null,"left":[{"type":"object","name":"CategoricalAxis","id":"p1452","attributes":{"ticker":{"type":"object","name":"CategoricalTicker","id":"p1453"},"formatter":{"type":"object","name":"CategoricalTickFormatter","id":"p1454"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1455"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1447","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1448","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1449"},"axis_label":"Correctness (%)","axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1450"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1451","attributes":{"axis":{"id":"p1447"},"grid_line_color":"#E0E0E0","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1456","attributes":{"dimension":1,"axis":{"id":"p1452"},"grid_line_color":"#E0E0E0","grid_line_alpha":0.25}},{"type":"object","name":"Span","id":"p1476","attributes":{"location":25.0,"dimension":"height","line_color":"#EA3829","line_width":2,"line_dash":[6]}},{"type":"object","name":"Legend","id":"p1486","attributes":{"border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1487","attributes":{"label":{"type":"value","value":"Correctness on the entire Testset"},"renderers":[{"id":"p1483"}]}}]}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}]}}';
+        const render_items = [{"docid":"fd707858-d5b7-43d4-9af6-d68350c5adde","roots":{"p1435":"ed50ec6c-0b8c-49a9-bc99-4b793726acb6"},"root_ids":["p1435"]}];
+        root.Bokeh.embed.embed_items(docs_json, render_items);
+        }
+        if (root.Bokeh !== undefined) {
+          embed_document(root);
+        } else {
+          let attempts = 0;
+          const timer = setInterval(function(root) {
+            if (root.Bokeh !== undefined) {
+              clearInterval(timer);
+              embed_document(root);
+            } else {
+              attempts++;
+              if (attempts > 100) {
+                clearInterval(timer);
+                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+              }
+            }
+          }, 10, root)
+        }
+      })(window);
+    });
+  };
+  if (document.readyState != "loading") fn();
+  else document.addEventListener("DOMContentLoaded", fn);
+})();
+    </script>
+
+                <div id="ed50ec6c-0b8c-49a9-bc99-4b793726acb6" data-root-id="p1435" style="display: contents;"></div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">KNOWLEDGE BASE OVERVIEW</div>
+                    <script type="text/javascript">
+        (function() {
+  const fn = function() {
+    Bokeh.safely(function() {
+      (function(root) {
+        function embed_document(root) {
+        const docs_json = '{"8ec6f4de-1cb5-4749-82c4-3ae10a5a7038":{"version":"3.4.3","title":"Bokeh Application","roots":[{"type":"object","name":"Tabs","id":"p1366","attributes":{"sizing_mode":"stretch_width","tabs":[{"type":"object","name":"TabPanel","id":"p1296","attributes":{"title":"Topic exploration","child":{"type":"object","name":"Figure","id":"p1248","attributes":{"sizing_mode":"stretch_width","x_range":{"type":"object","name":"Range1d","id":"p1257","attributes":{"start":1.7498100757598878,"end":10.971544551849366}},"y_range":{"type":"object","name":"Range1d","id":"p1258","attributes":{"start":-1.260787457227707,"end":7.3407241106033325}},"x_scale":{"type":"object","name":"LinearScale","id":"p1259"},"y_scale":{"type":"object","name":"LinearScale","id":"p1260"},"title":{"type":"object","name":"Title","id":"p1255","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1288","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1245","attributes":{"selected":{"type":"object","name":"Selection","id":"p1246","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1247"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"LcpCQMAOVkCoe4BAFEorQL/ceEBrQndABD9yQDoOYUBTO7FA6smGQB5qeEC9a45AqWxEQFlMTEBX3wFAVZA4QAwxSUAlu5VA4sypQCScp0DmQq9AcmegQJuMxECaSb9AoZnMQApL0kB0DB5AhO5QQAx1x0ApQrtAGYrLQN7AsUDAWt9Adb7uQD1b6UCBZ9tAxpTaQMFKjkAWf6lAloeBQPGdxECuqsZA56nTQJEMqEBd5NNADwjZQDKIY0D4gb5AxkW+QDjXx0AxV7JA/z2CQAU7kkAvyPNAExyUQFfvIkDrN6hAdIO1QGzxl0B1wmZAxXqVQHqFkUAkd69AR3SfQLS+4ECyXcFAh3JpQF0g7EBvXIVAX5UrQNOyyEDnwMxAcK+sQFuVnEC1kNxAWM7sQGjr5kBroMRA7+3UQKF9uUA="},"shape":[80],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"8SEVQDgCdUAIIUZAFngbQA6EUUCqRoJA2gcbQBA2qT+vCQk/qLKBPwMS3D/TM98/6I6RPzB05z8QYCBA6sJQQPWmh0AGUzhAzQNKQMOyXEBWbGhApF9qQOc2PEDi5VpAgcoXQLdI3j9OFT5ACLs6QLEMJ0CoVR5AMQSjQAu9LECSnmpAWMguQOE0FEBhoJxAW1SXQMF0kUBs1xpAcM+fQDxXiEBE/ahAl6a5QDpwsEDXRPU/Bew/QCABlUCOxLtAd7eUQOcKZUAoHuE/z6EOQDijJ0BG1gVAsqKFP3FO5D9IB71AV+ybP2jo/z9nJidAXVXDPtVkKT8egqBAIt6LQHZpmED72Lo/9D9OP1GuiUAe63dAt5GDQP/bgj/4ri8/MPxiP7cyzj9LDsQ/s/qeP6m2bT/q8TA+82DMPmyabj4="},"shape":[80],"dtype":"float32","order":"little"}],["topic",["COVID-19 Vaccine Efficacy","COVID-19 Vaccine","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","Others","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine","Others","COVID-19 Vaccine","COVID-19 Vaccine","COVID-19 Vaccine","COVID-19 Vaccine","COVID-19 Vaccine","COVID-19 Vaccine","COVID-19 Vaccine","COVID-19 Vaccine","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine","COVID-19 Vaccine","Vaccine Safety Study","COVID-19 Vaccine","Others","Others","Others","Vaccine Safety Study","Vaccine Safety Study","COVID-19 Vaccine","COVID-19 Vaccine","COVID-19 Vaccine","Others","Vaccine Safety Study","Vaccine Safety Study","Vaccine Safety Study","COVID-19 Vaccine","Others","COVID-19 Vaccine","Vaccine Safety Study","Vaccine Safety Study","Others","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","Others","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","Others","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","Others","COVID-19 Vaccine Efficacy","Vaccine Safety Study","Others","Vaccine Safety Study","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","Others","COVID-19 Vaccine Efficacy","Others","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine","COVID-19 Vaccine","Others","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy","COVID-19 Vaccine Efficacy"]],["id",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79]],["content",["Safety and ef\\ufb01cacy of the two doses conjugated protein-based\\nSOBERANA-02 COVID-19 vaccine and of a heterologous\\nthree-dose combination with SOBERANA-Plus: a double-blind,\\nrandomised, placebo-controlled phase 3 clinical trial\\nMar\\u00eda Eugenia Toledo-Roman\\u00ed,a,s,* Mayra Garc\\u00eda-Carmenate,b,s Carmen Valenzuela-Silva,c,s Waldemar Baldoqu\\u00edn-Rodr\\u00edguez,a\\nMarisel Mart\\u00ednez-P\\u00e9rez,d Meiby Rodr\\u00edguez-Gonz\\u00e1lez,d Beatriz Paredes-Moreno,d Ivis Mendoza-Hern\\u00e1ndez,e Ra\\u00fal Gonz\\u00e1lez-Mujica Romero,d\\nOscar Sam\\u00f3n-Tabio,f Pab...","Valdes-Balb\\u00edn,d,s\\nDagmar Garc\\u00eda-Rivera,d,s Patrick Van der Stuyft,r and Vicente Verez-Bencomo,d,s,** the SOBERANA Phase 3 teamt\\na\\u201cPedro Kour\\u00ed\\u201d Tropical Medicine Institute.","Av \\u201cNovia del Mediod\\u00eda\\u201d, Kv 6 1/2, La Lisa, Habana, 11400, Cuba\\nbHavana Hygiene and Epidemiology Center, Havana, Cuba\\ncCybernetics, Mathematics and Physics Institute. 15th St #55, Vedado, Plaza de la Revoluci\\u00f3n, Havana, 10400, Cuba\\ndFinlay Vaccine Institute. 21st Ave. N\\u25e619810 between 198 and 200 St, Atabey, Playa, Havana, Cuba\\neNational Coordinating Center for Clinical Trials. 5th Ave and 62, Miramar, Playa, Havana, Cuba\\nf\\u201cJos\\u00e9 Antonio Echevarr\\u00eda\\u201d Technological University, Havana, Cuba\\ngUCT Geoc...","Marianao, Havana, Cuba nMunicipal Health Department, Playa, Havana, Cuba oMunicipal Health Department, Plaza Havana, Cuba pPasteur Institute of Iran. No. 69, Pasteur Ave., Tehran 1316943551, Islamic Republic of Iran\\nqIran University of Medical Science, Teheran, Iran\\nrFaculty of Medicine and Health Sciences, Ghent University, Ghent, Belgium\\nSummary\\nBackground SOBERANA-02 is a COVID-19 conjugate vaccine (recombinant RBD conjugated to tetanus toxoid). Phases 1/2 clinical trials demonstrated high im...","and ef\\ufb01cacy of two immunisation regimes: two doses of SOBERANA-02 and a heterologous three-dose combination with SOBERANA-Plus added to it. Methods From March 8th to June 24th, 2021 we conducted in Havana, Cuba a multicentre randomised, double-blind,\\nplacebo-controlled, phase-3 trial evaluating a two doses SOBERANA-02 scheme and a heterologous scheme with one\\ndose SOBERANA-Plus added to it (RPCEC00000354). Participants 19\\u201380 years were randomly assigned to receiving\\n28 days apart either the two ...","at least one vaccine/placebo dose, safety for 28 days after each dose. *Corresponding author. **Corresponding author. E-mail addresses: mariaeugenia@ipk.sld.cu (M.E. Toledo-Roman\\u00ed), vicente.verez@\\ufb01nlay.edu.cu (V. Verez-Bencomo). sContributed equally to this article. tThe members of the SOBERANA Phase 3 team are listed in the Supplementary information (S1 and S2). The Lancet Regional\\nHealth - Americas\\n2023;18: 100423\\nPublished Online 31\\nDecember 2022\\nhttps://doi.org/10. 1016/j.lana.2022. 100423\\nw...","Findings We included 44,031 participants (52.0% female, 48.0% male; median age 50 years, range 19\\u201380 years; 7.0%\\nblack, 24.0% mixed-race, 59.0% white) in a context of initial Beta VOC predominance, with this variant being partially\\nreplaced by Delta near the trial\\u2019s end. Vaccine ef\\ufb01cacy in the heterologous combination was 92.0% (95%CI 80.4\\u201396.7)\\nagainst symptomatic disease. There were no severe COVID-19 cases in the vaccine group against 6 in the placebo\\ngroup. Two doses of SOBERANA-02 was 69.7%...","vaccine groups. Solicited AEs were slightly more frequent in the vaccine group but predominantly local and mostly mild and transient. Interpretation Our results indicate that the straightforward to manufacture SOBERANA vaccines are ef\\ufb01cacious in a\\ncontext of Beta and Delta VOC circulation, have a favourable safety pro\\ufb01le, and may represent an attractive option for\\nuse in COVID-19 vaccination programmes. Funding This study received funds from the National Fund for Science and Technology (FONCI-CI...","\\u00a9 2022 The Authors. Published by Elsevier Ltd. This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/). Keywords: Conjugate-vaccine; SARS-COV-2; COVID-19 vaccine; Heterologous scheme; RBD-subunit vaccine;\\nVaccine ef\\ufb01cacy\\nResearch in context\\nEvidence before this study\\nWe searched PubMed for research articles and reviews\\npublished until July 1st, 2022, using the terms \\u201cef\\ufb01cacy\\u201d AND\\n\\u201csubunit COVID-19 vaccines\\u201d without further \\ufb01lters or\\nrestri...","95% (95%CI 92\\u201397); protein subunit vaccines 77% (95%CI 5\\u201395); viral vector vaccines 68% (95%CI 61\\u201374); inactivated vaccines 61% (95%CI 52\\u201368). By\\nrestricting the search to \\u201cClinical trial\\u201d [Publication Type])\\nAND \\u201cheterologous vaccination\\u201d [MeSH Terms] AND \\u201cCOVID-19\\nvaccine\\u201d [MeSH Terms] we retrieved only 6 papers, with just\\none trial related to heterologous combinations for priming\\nimmunisation versus COVID-19. We have previously reported safety and immunogenicity results\\nof phase 1/2 clinical ...","(FINLAY-FR-1A) to it. The 2 doses regimen induced neutralizing antibodies and T-cells with IFN\\u03b3 secretion, indicative of a Th1 pattern. After the third\\nheterologous dose, which signi\\ufb01cantly increased neutralizing\\nanti-RBD IgG titres, IgG antibodies were detected against\\nD614G and VOCs alpha, Beta, Delta and Omicron and were still\\npresent 7\\u20138 months after the third dose. Added value of this study\\nWe report on a multicentre, phase 3 randomised,\\nplacebo-controlled, double-blind trial conducted in H...","initial predominance of Beta VOC, with this variant being partially replaced by Delta towards the end of the observation period. The vaccine\\nef\\ufb01cacy (VE) of the two doses scheme was 69.7% (95%CI\\n56.5\\u201378.9) 14 days after the second dose administration. VE\\nfor the heterologous three-dose combination was 92.0%\\n(95%CI 80.4\\u201396.7). Severe COVID-19 occurred in 23 and 5\\nparticipants in the placebo and SOBERANA-02 group (VE\\n74.9%; 95%CI: 33.7\\u201390.5) and led to 3 and 2 deaths,\\nrespectively. Fourteen days a...","vaccine groups. Solicited AEs were slightly more frequent in the vaccine group but predominantly local and mostly mild and transient. Implications of all the available evidence\\nSOBERANA-02, the \\ufb01rst protein based conjugate vaccine\\nagainst SARS CoV-2, and SOBERANA-Plus are straightforward\\nto manufacture and have logistical advantages in terms of\\nstorage and distribution, due to being stable and permitting\\nthe use of a conventional 2\\u20138 \\u25e6C cold-chain. The vaccines are\\nef\\ufb01cacious in a context of Bet...","Introduction\\nImmunisation with an effective vaccine constitutes the\\nmain tool to \\ufb01ght the COVID-19 pandemic, and\\nachieving high vaccination coverage is critical to control\\nthe emergence and spread of new SARS CoV-2 vari-\\nants.1 Clinical trials provided evidences of the ef\\ufb01cacy of\\nvaccines based on different technologies, which received\\nWHO\\nendorsed\\nemergency\\nuse\\nauthorisation.2\\nNotwithstanding, even under optimistic manufacturing\\nand delivery scenarios, global equitable access to vac-\\ncines is l...","likely to be limited when relying on the currently available products only.3 SOBERANA-02 is a subunit conjugated protein-based COVID-19 vaccine. The antigen is the recombinant\\nreceptor binding domain (RBD) protein conjugated\\nchemically to tetanus toxoid (TT).4 The well-known pro-\\ntein-polysaccharide\\nconjugation\\ntechnology\\nprovided\\nnovel, safe and highly immunogenic paediatric vaccines\\nagainst Haemophilus in\\ufb02uenzae type b from the 1980s\\nonwards,5 and for protecting against Neisseria meningitidis\\n...","against Haemophilus in\\ufb02uenzae type b from the 1980s onwards,5 and for protecting against Neisseria meningitidis and Streptococcus pneumoniae,6,7 among others. In phase 1 and 2a clinical trials two doses of\\nSOBERANA-02 induced neutralising antibodies and T-\\ncells with IFN\\u03b3 secretion, indicative of a Th1 response\\npattern.8 A single dose of SOBERANA-Plus (RBD-\\ndimer/Alum) demonstrated booster capacity in conva-\\nlescent COVID-19 patients who had acquired natural\\nimmunity against the virus,9 through ...","SOBERANA-02, and the heterol-\\nogous combination thereof with SOBERANA-Plus as a\\nthird dose.","Methods\\nStudy design and context\\nA\\nmulticentre,\\nadaptive,\\nrandomised,\\nplacebo-\\ncontrolled, double-blind phase 3 trial was set up to\\nevaluate the ef\\ufb01cacy and safety of vaccination against\\nSARS-CoV-2 with 2 doses of SOBERANA-02 (FINLAY-\\nFR-2) -subsequently referred to as So2-and with a three\\ndose heterologous scheme adding SOBERANA-Plus\\n(FINLAY-FR-1A) to the former -hereafter So2P. Partici-\\npants were recruited from March 8th to March 31st,\\n2021 and received, with intervals of 28 days, either the\\n...","practices and policlinics. The practices are the systems\\u2019 entry point, policlinics provide diagnostic and support services and more specialized care. The\\nroutine identi\\ufb01cation of COVID-19 cases is based on\\nthese \\ufb01rst line services, which pinpoint suspects and\\nrefer to hospitals. Upon a positive RT-PCR test they are\\nadmitted until symptom resolution with a negative PCR\\ntest. Contacts of COVID-19 cases are isolated for 5 days\\nand routinely PCR tested. The epidemiological context at the start of th...","Public Health).12 At the start of the So2 ef\\ufb01cacy evaluation, VOC Beta pre- dominated (epidemiological week 16\\u201320: 83.6% to 72.7%). Later, after initiating the So2P ef\\ufb01cacy evalua-\\ntion, the Beta strain was partially replaced by Delta\\n(epidemiological week 20\\u201326: 72.7% to 47.3% Beta and\\n2.2% to 52.6% Delta, respectively). The latter was asso-\\nciated with a sharp rise of transmission leading to a\\nsigni\\ufb01cant increase in the incidence rate of clinical cases\\nfrom 119.4 to 172.7 \\u00d7 105 in epidemiologi...","informed consent forms. In the event of a medical problem requiring unmasking, approval by the principal investigator was planned for. All principles of the Helsinki Declaration and the In-\\nternational Council for Harmonization guidelines were\\nadhered to.13 Full details on procedures are provided in\\nthe protocol. The National Clinical Trials Coordinating Centre\\n(CENCEC) monitored the trial for protocol adherence\\nand observance of Good Clinical Practice and oversaw\\ndata accuracy. An Independent S...","and blinding In 8 municipalities of west Havana we set up, in existing health infrastructure, 48 vaccination and clinical sites. Practitioners of the family practices linked to each of\\nthese sites, organised information campaigns in the\\ncommunity and summoned the population between 19\\nArticles\\nwww.thelancet.com Vol 18 February, 2023\\n3","and 80 years old to participate in the study. The family\\ndoctors carried out a \\ufb01rst eligibility screening before\\ntransferring potential participants to the nearest vacci-\\nnation site, where the medical doctors decided the\\ninclusion. Subjects between 19 and 80 years old with no known\\nhistory of SARS-CoV-2 infection that consented to use\\nreliable anticonception if female and in fertile age, and\\nthat provided written informed consent for participation\\nwere included.","to use reliable anticonception if female and in fertile age, and that provided written informed consent for participation were included. Exclusion criteria were previous receipt\\nof a COVID-19 vaccine, acute febrile illness or infectious\\ndisease, pregnancy, puerperium or breastfeeding, any\\nuncontrolled non-communicable disease, history of a\\nsevere allergic reaction to any component of the vac-\\ncines, current or planned (within 30 days) receipt of\\nimmunomodulatory drugs, history of COVID-19 infec-...","(Realy Tech IgG/IgM, China) was collected in order to subsequently permit safety and ef\\ufb01cacy ana- lyses strati\\ufb01ed by prior exposure. Block randomisation into the placebo, So2 and So2P\\nstudy arms and placebo was done at a 1:1:1 ratio,\\nstrati\\ufb01ed by site and by a priori de\\ufb01ned risk strata: 19\\u201364\\nyears without risk of severe COVID-19, 19\\u201364 years with\\nrisk of severe disease, and \\u226565 years. The size of the\\nblocks by site and risk strata was adjusted in each case to\\nthe potential of subjects to includ...","to the potential of subjects to include in each stratum, with a minimum of 33 and a maximum of 159. Participants\\nyounger than 65 years of age were categorised as being\\nat risk of severe COVID-19 if they had at least one of the\\nfollowing self-referred risk factors: obesity (body mass\\nindex \\u226535), severe malnutrition (BMI &lt; 18.5), hyper-\\ntension (according to the Ministry of Public Health\\nguidelines),14 chronic kidney disease, ischemic heart\\ndisease, diabetes mellitus, chronic obstructive pulmo-\\nna...","identi\\ufb01ca- tion code, which matched the vial label code. The presentation of the vaccine candidates and pla- cebo were undistinguishable. The participants, the\\ninvolved health care workers and the investigators were\\nmasked to group allocation until the decision was taken\\nto administer or complete the three-dose vaccine\\nschedule. Products under evaluation\\nSOBERANA-02 is a subunit protein-based vaccine. The\\nantigen is the recombinant SARS-CoV-2 RBD (25 \\u03bcg),\\nchemically conjugated to tetanus toxoid ...","contained SOBERANA-02 ingredients except the active principle. All were stored at 2\\u20138 \\u25e6C and distributed daily to the clinical sites. Ef\\ufb01cacy assessment\\nThe primary endpoint was vaccine ef\\ufb01cacy (VE) for\\npreventing\\noccurrence\\nof\\nsymptomatic\\nCOVID-19\\ninfection,\\ncon\\ufb01rmed\\nby\\na\\npositive\\nSARS-CoV-2\\nRT-PCR nasopharyngeal swab (RT-PCR), with onset at\\nleast 14 days after the last injection in the per-protocol\\npopulation (PPP). Secondary endpoints were the ef\\ufb01-\\ncacy for the prevention of severe COVID-19 a...","COVID-19 hospital doctors and reviewed by speci\\ufb01cally trained medical research team members. The study\\u2019s Principal Investigator resolved any discrep- ancy. COVID-19 symptomatic disease was considered if\\nparticipants had at least one major symptom or sign\\n(dyspnoea, oxygen saturation \\u226492%, persistent thoracic\\npain, neurological disorders, clinical or radiographic\\nevidence of pneumonia) or two minor symptoms (fever,\\nchills, myalgia, headache, sore throat, running nose,\\ndiarrhoea/vomiting, myalgia,...","Germany) con\\ufb01rmation was performed by the SARS CoV-2 national reference laboratory at the \\u201cPedro Kour\\u00ed\\u201d Tropical Medical Institute, Havana, Cuba. Severe COVID-19 was de\\ufb01ned by the presence of any\\nof the following: dyspnoea with respiratory rate &gt;30\\nbreaths/min; cyanosis, pulmonary in\\ufb01ltration/conden-\\nsation, oxygen saturation \\u226490% or assisted mechanical\\nventilation, acute respiratory distress syndrome, evi-\\ndence of septic shock, or admission to intensive care. Death was attributed to COVID-19 i...","receiving each dose of vaccine or placebo and by self-report using a diary of adverse events up to 28 days. AEs were classi\\ufb01ed as solicited (within 7 days after in-\\njection) and unsolicited (within 28 days after injection);\\nlocal and systemic; grade 1, 2 or 3 (according to the\\nCommon Terminology Criteria for Adverse Events,\\nversion 5.0),17 and causally vaccine related or not (during\\n28 days) following WHO recommendation.18\\nData storage and management\\nAll information generated during the study wa...","store study subjects\\u2019 general demographic and clinical\\ninformation, speci\\ufb01c data on the possible occurrence\\nand subsequent course of a symptomatic COVID-19\\ndisease episode, and information on adverse events. We made use of the national online registry ANDAR-\\nIEGO.HIGIA\\n(GEOCUBA,\\nCuba,\\nhttp://higia. andariego.cu) platform to store the participants\\u2019 vacci-\\nnation records and follow up their PCR results. The\\nplatform registers COVID-19 doses administered in all\\nvaccination centres in Cuba, and resu...","data export. A unique code assigned to each subject at enrolment guaranteed con\\ufb01dentiality and permitted linking information from both sources. The\\nsponsor\\u2019s staff ensured data export and cleansing for the\\nsubsequent carrying out the interim and \\ufb01nal analyses. All data management activities were governed by\\nstandardised working procedures. We developed a monitoring and audit plan for\\nquality control. During site visits, the proper conduct of\\nthe trial was veri\\ufb01ed by assessing adherence to the st...","digitalization. The visits also made it possible to detect and correct any differ- ential assessments of clinical events between centres. Statistical analysis (see also S3- Supplemental\\nstatistical methods)\\nIn line with international recommendations that the\\nprimary ef\\ufb01cacy endpoint estimate for a placebo-\\ncontrolled trial should be at least 50% to ensure that a\\nwidely deployed COVID-19 vaccine is effective,19 the\\ntrial was designed to test the hypothesis that the risk of\\nsymptomatic COVID-19 is...","trial was designed to test the hypothesis that the risk of symptomatic COVID-19 is reduced &gt;60% compared to placebo group. With\\nuniform\\nrecruitment\\nand\\nassuming a six month cumulative incidence of 0.66%\\nsymptomatic cases in the placebo group, the design\\nrequired inclusion of 44,010 subjects (14,670 per study\\ngroup) and a total of 151 events (between the Placebo\\ngroup and each vaccination scheme) to achieve 90%\\npower (and 2.5% 1-sided type I error) to detect a hazard\\nratio (HR) of 0.4 (VE &gt;60% to...","106 symptomatic cases meeting the primary outcome de\\ufb01nition. We used person-time of exposure in the summary statistics and group comparisons. Vaccine ef\\ufb01cacy was\\ncalculated in the per-protocol population (PPP) as\\npercentage reduction in the HR: VE = 100 \\u00d7 (1 \\u2013 HR) %,\\nin the vaccine groups as compared to the placebo group,\\nwith HR estimated from a strati\\ufb01ed Cox proportional\\nhazards model taking into account the de\\ufb01ned risk\\nstrata. To take the evolution of the epidemiological sit-\\nuation over time...","dose in placebo). Safety was assessed in all participants in the safety population (those who received at least one injection). Descriptive summary statistics (numbers and percent-\\nages) for participants with any solicited AE, unsolicited\\nAE, unsolicited severe AE, serious AE, and AE leading to\\ndiscontinuation from the trial are provided by arm and\\nafter each dose. A criterion for stopping due to unacceptable toxicity\\n(frequency of serious vaccine related adverse event &gt;1%)\\nwas evaluated iterati...","explosive epidemiological situation, it was deemed unethical to withhold the bene\\ufb01ts of the vaccine from individuals in the placebo group. The Central Research Ethics Committee of the\\nMinistry of Public Health recommend the sponsor to\\nstart offering to participants randomised in that group\\nthe three-dose schedule. As a consequence, the obser-\\nvation period for ef\\ufb01cacy estimation of So2P versus\\nplacebo was limited to 6 weeks. Concurrently, So2 par-\\nticipants were invited to receive a third hetero...","2021, 45.184 volunteers were screened and 44,031 were randomly assigned to So2 (14.679), So2P (14,677) or placebo (14,675) (Fig. 1). Participants\\u2019 characteristics were balanced between the\\nstudy arms (Table 1) and the gender and racial distri-\\nbution were representative of the Cuban demographic\\nstructure (see also S4-Table S3 for characteristics by age\\nand risk of severe COVID-19). At baseline, serologic\\nevidence of a previous SARS-CoV-2 infection was\\ndetected\\nin\\n0.3%\\nof\\nparticipants. All\\npartic...","Fig. 1: Study \\ufb02ow chart. So2 regimen: two doses of SOBERANA-02, every 28 days; So2P regimen: heterologous combination of two doses of\\nSOBERANA-02 and a third dose with SOBERANA-Plus, every 28 days. *Considering cases occurring in the same calendar period for the comparison\\nwith three dose schedule (42 days after the 2nd dose of placebo) Protocol deviations (364) were due to intercurrent vaccination with another\\nproduct (53.8%), errors in the administration of the vaccine formulation (11.2%), inc...","received the \\ufb01rst dose of the treatment they were allo-\\ncated to. After receiving the \\ufb01rst dose, 168 (0,38%) partici-\\npants withdrew their consent and did not receive the\\nsecond dose and after that dose, 7 (0,05%) participants\\nfrom the So2P group withdrew their consent. 412\\n(0.94%) and 123 (0.84%) participants diagnosed with\\nsymptomatic PCR positive SARS-CoV-2 infection were\\nexcluded before receiving the second and the third dose,\\nrespectively. Protocol deviations - 364 (0.83%) in total-\\nwere du...","ef\\ufb01cacy anal- ysis included 42509 subjects: 14354 in the So2, 13871 in the So2P, and 14284 in the placebo group. Follow-up\\nfrom 14 days after the second dose in the two doses\\nanalysis totalled 70,959 and 64,926 persons-weeks in the\\nplacebo and So2 arm, respectively, while in the three\\ndoses analysis the corresponding follow-up time was\\n20,047 persons-weeks in the placebo and 47,088 per-\\nsons-weeks in the So2P group. Safety\\nLocal\\nsolicited\\nVaccine-Associated\\nAdverse\\nEvents\\n(VAAEs) occurred somewh...","(S7-Table S6). In the vaccine groups 97.5% of local adverse events were grade 1 and less than 0.2% grade 3. They lasted a median of 2 days after\\nthe \\ufb01rst and second dose (25\\u201375th percentile: 1\\u20133 after\\nthe \\ufb01rst and 1\\u20132 after the 2nd dose), and 2 days after the\\nthird dose (25\\u201375th percentile: 0\\u20133).","1\\u20133 after the \\ufb01rst and 1\\u20132 after the 2nd dose), and 2 days after the third dose (25\\u201375th percentile: 0\\u20133). The most common\\nlocal AE was pain at the injection site (2.6%, 7.5% and\\nCharacteristic\\nTreatmentb\\nOverall\\nN = 44,031\\nPlacebo\\nN = 14,675\\nSo2\\nN = 14,679\\nSo2P\\nN = 14,677\\nAge\\u2013Median (range) - years\\n50 (19\\u201380)\\n50 (19\\u201380)\\n50 (19\\u201380)\\n50 (19\\u201380)\\nRace or ethnic group - n (%)\\nBlack\\n7276 (17.0)\\n2453 (17.0)\\n2379 (16.0)\\n2444 (17.0)\\nMixed-race\\n10,738 (24.0)\\n3574 (24.0)\\n3575 (24.0)\\n3589 (24.0)\\nWhite\\n26,01...","mellitus\\n3673 (8.3)\\n1194 (8.1)\\n1224 (8.3)\\n1255 (8.6)\\nCKD\\n111 (0.3)\\n40 (0.3)\\n36 (0.2)\\n35 (0.2)\\nImmunode\\ufb01ciency\\n2636 (6.0)\\n870 (5.9)\\n872 (5.9)\\n894 (6.1)\\nHBP\\n13,703 (31)\\n4529 (31)\\n4572 (31)\\n4602 (31)\\nSevere malnutrition\\n354 (0.8)\\n120 (0.8)\\n128 (0.9)\\n106 (0.7)\\nAge category and risk for severe Covid-19a - n (%)\\n\\u226565 years\\n7908 (18.0)\\n2634 (18.0)\\n2639 (18.0)\\n2635 (18.0)\\n19\\u201364 years\\n23,642 (54.0)\\n7895 (54.0)\\n7875 (54.0)\\n7872 (54.0)\\n19\\u201364 years with any comorbidity\\n12,481 (28.0)\\n4146 (28.0)\\n4165 (28.0)\\n4...","kidney disease, ischemic heart disease, diabetes mellitus, chronic obstructive pulmonary disease, asthma (grade 2/3), cancer, HIV or primary/secondary\\nimmunode\\ufb01ciency.","bTreatment: So2: Two doses of SOBERANA-02, 28 days apart; So2P: Two doses of SOBERANA-02 and 1 dose of SOBERANA-Plus, 28 days apart. Table 1: Baseline Demographic and Clinical Characteristics of the randomized participants. Articles\\nwww.thelancet.com Vol 18 February, 2023\\n7","8.7% in placebo and vaccine groups, respectively). Onset\\nof injection\\u2013site reactions on or after day 8 were noted\\nin 21 participants (0.05%) after the \\ufb01rst dose (4 for\\nplacebo and 17 for vaccine groups), in 4 (0.01%) after\\nthe second dose (2 for placebo and 2 for vaccine groups)\\nand in 1 participant (0.01%) after the third dose. Local\\nreactions were characterized by erythema, induration,\\nwarmth, swelling and pain, and resolved after a median\\nof 1 day (25\\u201375th percentiles: 0.5\\u20132).\\nSolicited syste...","after the third dose (Fig. 2, S6-Table S4, S7-Table S5, S8-\\nTable S6). Their severity in the vaccine groups changed\\nslightly from 6.5% after the \\ufb01rst dose to 8.8% after the\\nsecond dose for grade 2 events, and from 0.6% to 0.4%\\nfor grade 3 ones. Solicited systemic AEs in the vaccine\\ngroups lasted a median of 1 day after the \\ufb01rst (25\\u201375th\\npercentile: 0\\u20132) and second doses (25\\u201375th percentile:\\n0\\u20133), and 2 days after the third dose (25\\u201375th percentile:\\n0.8\\u20137.5). The frequency of solicited AE was ver...","for So2 and 2.2% for So2P) and headache (1.0% for placebo, 1.2% for So2 and 1.5% for So2P) (S9-Table S8). The occurrence of\\nserious (&lt;0.1%) and severe (0.1%) VAAE was equal be-\\ntween groups (S8-Table S7, S10-Table S9). 3.9% of all\\nthe AEs were grade 3 in the placebo group against 3.4%\\nand 4.2% for groups So2 and So2P, respectively and\\n7.9%, 6.7% and 6.7% were serious in these groups,\\nrespectively. All-cause mortality was 24 (0.2%) amongst\\nplacebo recipients against 9 and 11 (0.1%) in groups So2\\n...","P &lt; 0.001) for the prevention of symptomatic SARS-CoV-2 infection by the So2 schedule (Table 2, Fig. 3, S13-Fig. S2). The vaccine ef\\ufb01cacy to\\nprevent COVID-19 was congruous across subgroups\\nstrati\\ufb01ed by demographic and baseline characteristics\\n(S14-Fig. S3). The VE for prevention of severe COVID-19 (23 cases\\nin placebo vs 5 in So2) was 74.9% (95%CI: 33.7\\u201390.5)\\n(S12-Table S10). There were 3 and 2 deaths from\\nCOVID-19 disease, respectively; the small number of\\nevents precludes a point estimate of V...","80.4\\u201396.7%; P &lt; 0.001) for prevention of symptomatic SARS-CoV-2 infection by the 3-dose schedule (Table 2, Fig. 3, S15-Fig. S4). Subgroup\\u2019s\\nanalysis yields remarkably consistent VE estimates, but\\nlacks precision for much of the strata (S16-Fig. S5). Severe COVID-19 occurred in 6 and 0 participants in the\\nplacebo and So2P group, respectively (S12-Table S10). There were no deaths from COVID-19 disease. Including in the analysis subjects that were PCR\\nnegative but had a IgG/IgM positive test at inc...","well over the WHO-set 50% threshold.19 After completion of the heterolo- gous schedule with SOBERANA-Plus, VE attained an excellent 92.0%. Ef\\ufb01cacy to prevent severe COVID-19\\nwas 74.9% for the two doses regimen; no severe\\ncase presented under the heterologous scheme. The\\noccurrence of serious and severe AEs was very rare\\nCOVID-19 disease\\nTwo-dose Vaccine Ef\\ufb01cacy\\nPlacebo\\nSo2\\nn of events, PPP\\n136\\n38\\nPerson- weeks follow-up\\n70,959\\n64,926\\nIncidence rate per 1000 Person-Years (95% CI)\\n99.9 (83.8; 118....","(Vaccine vs. placebo), and the 95% con\\ufb01dence interval was estimated with the use of a strati\\ufb01ed Cox proportional hazards model. Table 2: Vaccine Ef\\ufb01cacy to prevent symptomatic COVID-19 disease in the Per-Protocol Population (PPP). Articles\\nwww.thelancet.com Vol 18 February, 2023\\n9","and equally distributed between the placebo and vac-\\ncine groups. Solicited AEs were slightly more frequent\\nin the vaccine group but predominantly local and\\nmostly mild and transient. Subunit protein vaccines present clear advantages in\\nterms of manufacturing, storage and distribution.21 Still,\\nadministration of a third heterologous dose in the So2P\\nregimen, which signi\\ufb01cantly further increases SOBER-\\nANA\\u2019s VE, could be construed as a disadvantage\\ncompared to COVID-19 vaccines using two dose reg...","further increases SOBER- ANA\\u2019s VE, could be construed as a disadvantage compared to COVID-19 vaccines using two dose regi- mens. However, the need for and bene\\ufb01ts of adminis-\\ntering a booster dose to the primary schedules of\\nregistered\\nvaccines\\nis\\nincreasingly\\nrecognised.22,23\\nFurthermore, due to the T-epitopes from the tetanus\\ntoxoid carrier protein, SOBERANA-02 -the \\ufb01rst conju-\\ngate SARS CoV-2 RBD protein-based vaccine induces\\nT-helper response and long lasting immunity.8,11 Het-\\nerologous com...","758 volunteers was 76.3% after\\ntwo doses and 96.8% after the third heterologous dose,\\nagainst 7.3% in the placebo group.11 Neutralising IgG\\nantibodies were detected against D614G and VOCs\\nAlpha, Beta, Delta and Omicron, and neutralising anti-\\nbodies were still present 7\\u20138 months after the third\\ndose.11 The results of the present trial permit to\\nconclude that the immunogenicity \\ufb01ndings translate\\ninto improved clinical ef\\ufb01cacy of the 3-dose scheme.","A living systematic review reports pooled vaccine\\nef\\ufb01cacy against symptomatic COVID 19 for different\\nplatform as: mRNA vaccines 95% (95%CI: 92%\\u201397%);\\nprotein subunit vaccines 77% (95%CI 5%\\u201395%); viral\\nvector vaccines 68% (95%CI: 61%\\u201374%) inactivated\\nvaccines 61% (95%CI 52%\\u201368%]. It found that viral\\nvector vaccines decreased overall mortality (risk ra-\\ntio = 0.25; 95%CI 0.09\\u20130.67), but analogous estimates\\nfor other platform vaccines are imprecise.26 SOBER-\\nANA\\u2019s performance in the present study c...","So2 ef\\ufb01cacy evaluation and partially replaced by VOC Delta after starting So2P evaluation. Beta has demonstrated signi\\ufb01cant immune evasion ability. It carries the E484K mutation that sub-\\nstantially reduces neutralisation by antibodies in sera of\\nconvalescent and vaccinated persons.27 The few available\\nVE trials on Beta, most of them conducted in South\\nAfrica, show ef\\ufb01cacy declines with respect to the per-\\nformance under predominance of the original SARS-\\nCoV-2 strain, except for BNT162b2 (P\\ufb01zer...","SOBERANA-02 achieved 69.7% (95% CI 56.5\\u201378.9%), a quite remarkable ef\\ufb01cacy against VOC Beta in our racially diverse Latin-American trial population. One could surmise that, being a conjugated\\nprotein-based vaccine that triggers a broad immune\\nresponse, the ef\\ufb01cacy might remain relatively well at par\\nFig. 3: Cumulative incidence of COVID-19 disease. Vertical dashed lines indicate the start of dose 2 administration, So2 ef\\ufb01cacy evaluation,\\ndose 3 administration and So2P ef\\ufb01cacy evaluation, respect...","against other immune evading variants. The heterolo-\\ngous combination, 92.0% ef\\ufb01cacious, performed still\\nbetter. It is, however, not possible to fully unravel the\\nef\\ufb01cacy with a third SOBERANA-Plus dose from the\\npartial replacement of Beta by Delta VOC. It should also\\nbe noted that, in line with previous phase 3 COVID-19\\nvaccine trials, we did not assess effects against asymp-\\ntomatic infection. Notwithstanding, both variants have evasion ability\\nand observational studies have been providing evi...","Delta VOC showed consistently lower protection against symptomatic disease than found in the earlier ef\\ufb01cacy studies with the original strain. After a full vaccination course with 2 doses, the\\nmeta-analysis\\neffectiveness\\nwas\\n83.7%\\n(P\\ufb01zer/Bio-\\nNTech) and 77.5% (Moderna) for mRNA-based vac-\\ncines, and 80.1% for the AstraZeneca vector vaccine.32\\nThe encouraging safety pro\\ufb01le observed during the\\nphase 2 SOBERANA clinical trial was con\\ufb01rmed in this\\nphase 3 study.8,11 Pain at the injection site was no...","reactions were low. Fever and general discomfort were rather uncom- mon and generally mild, as were other systemic re- actions. Serious and severe AEs occurred very rarely and\\nsimilarly in the vaccine and placebo groups and no\\ndeath was vaccine related, but sample sizes far beyond\\nthose of a typical clinical trial may be needed to\\nadequately appraise these frequencies. The Central Research Ethics Committee had delib-\\nerated that it was not acceptable to administer 56 days\\nafter randomisation a p...","the So2P group was \\u201cunblinded\\u201d and the So2P-placebo VE estimate may have been sub- jected to some behaviour driven bias. However, partic-\\nipants in the placebo comparison group remained\\nblinded to their actual allocation to either 2 doses of\\nplacebo or 2 doses of SOBERANA-02, and repeated\\nstandardised instructions for all study participant on\\nwhat constitute signs and symptoms of COVID-19\\ninfection and how to proceed, mass information cam-\\npaigns encouraging care seeking when suspecting\\ninfectio...","of our study. It shortened especially the follow up period for assessing the ef\\ufb01cacy of the three dose So2P schedule. Still, to observe waning of vaccine pro-\\ntection at least 6 months follow up would be needed,\\nwhich can generally only be achieved in observational\\nstudies under real life conditions. However, because of\\nthat decision, Placebo and So2 group participants had to\\nbe censored in the PPP analysis when they received a\\n\\ufb01rst and a third vaccine dose, respectively. This did not\\nmarkedly a...","3 doses VE, where the proportion of \\u201ccontaminated by vaccination\\u201d person- time in the placebo group would be exceedingly high. Therefore, we only report PPP results, allowing for\\ncomparison with other trial publications, which gener-\\nally emphasize PPP ef\\ufb01cacy anyway. Recruitment of participants through family medicine\\npractices,\\nwhich\\nguaranteed\\naccelerated\\ninclusion\\nre\\ufb02ecting the composition of the population in terms of\\ngender, race and pre-existing conditions, constitutes a\\nstrength of this ...","easier to distribute and use than those vaccines that must be stored at much lower temperatures and require powerful freezers. This represents a key advan-\\ntage in less-wealthy countries. Furthermore, they rely on\\nan established and widely used vaccine technology, and\\ntheir production can be cost-effectively implemented\\nand scaled up in biotechnology facilities in the global\\nsouth that are manufacturing other protein subunit\\nproducts. Overall, our results indicate that the SOBER-\\nANA vaccines ar...","NHM were clinical investigators. MRG, BPM, IMH supervised and monitored the trial. CVS, WBR and PVdS performed the statistical analysis. RGMR, OST, PVV, JPBC and ELM were involved in data\\nacquisition and data curation. SFC, YCR, YVB, MMP were responsible\\nfor vaccine development, manufacturing and project administration. DD, MMG and AB contributed to trial design. METR, CVS, WBR, DGR,\\nYVB, VVB and PVdS wrote the manuscript. All authors critically\\nreviewed\\nthe\\nmanuscript\\nfor\\nimportant\\nintellectual...","The members of SOBERANA Phase 3 team participated in different\\nprocesses during the trial: adverse event classi\\ufb01cation, data collection,\\ntreatment of adverse events, treatment of COVID-19 cases, quality\\nassurance, and on site coordination and monitoring of the trial, among\\nothers. Data sharing statement\\nThe protocol (English version) is available upon submission. Sum-\\nmary data on adverse events and VE are shared in the Supplementary\\nMaterial. Information is also available at the Cuban Public Re...","be made available after publica- tion. Proposals for full data sharing should be sent to: mariaeugenia@ ipk.sld.cu, vicente.verez@\\ufb01nlay.edu.cu or ci\\ufb01nlay@\\ufb01nlay.edu.cu. These proposals will be reviewed and must be approved by the sponsor\\nand the senior investigators. Lastly, a data access agreement must be\\nsigned. Declaration of interests\\nVVB, YVB, DGR, YCR, SFC are authors of two patent applications. The\\nother authors declare no competing interests. No author received an\\nhonorarium for contribut...","M. Fonseca G\\u00f3mez (Clinical Expert) from the Pedro Kour\\u00ed Tropical Medicine Institute, G. Mar\\u00eda Su\\u00e1rez Formigo (Immunological Expert) and P. Lorenzo-Luaces Alvarez (Statistical\\nExpert) from the Center for Molecular Immunology, M. Mart\\u00ednez\\nCabrera (Clinical Expert) from the Ministry of Public Health. We also thank Rolando P\\u00e9rez, Ileana Morales and Eduardo Mart\\u00ednez\\n(BioCubaFarma), and Lila Castellanos for their advice and support. Appendix A. Supplementary data\\nSupplementary data related to this art...","clinical ef\\ufb01cacy of COVID-19 vaccines: a systematic review and network meta-analysis. Sci Rep. 2021;11:22777. https://doi.org/10.1038/ s41598-021-02321-z. 3 WHO. Vaccine equity. https://www.who.int/campaigns/vaccine-\\nequity. Accessed February 22, 2021. 4\\nValdes-Balbin Y, Santana-Medero D, Quintero L, et al. SARS-CoV-2\\nRBD-tetanus toxoid conjugate vaccine induces a strong neutralising\\nimmunity in preclinical studies. ACS Chem Biol. 2021;16:1223\\u2013\\n1233. https://doi.org/10.1101/2021.02.08.430146. 5\\n...","conjugate vaccine. Lancet Glob Health. 2017;5:e6\\u2013e7. https://doi.org/10.1016/S2214- 109X(16)30338-2. 7 Gasparini R, Panatto D. Meningococcal glycoconjugate vaccines. Hum Vaccin. 2011;7:170\\u2013182. https://doi.org/10.4161/hv.7.2.13717. 8\\nToledo-Romani ME, Verdecia-S\\u00e1nchez L, Rodr\\u00edguez-Gonz\\u00e1lez M,\\net al. Safety and immunogenicity of anti-SARS CoV-2 vaccine\\nSOBERANA 02 in homologous or heterologous scheme: open label\\nphase I and phase IIa clinical trials. Vaccine. 2022;40:4220\\u20134230. https://doi.org/10...","open-label phase 1 clinical trial. Lancet Reg Health Am. 2021;4:100079. https://doi.org/10.1016/j.lana.2021.100079. 10 Bates TA, Mcbride SK, Leier HC, et al. Vaccination before or after\\nSARS-CoV-2 infection leads to robust humoral response and anti-\\nbodies that effectively neutralize variants. Sci Immunol. 2022;7:\\neabn8014. https://doi.org/10.1126/sciimmunol.abn801. 11\\nToledo-Romani ME, Garc\\u00eda-Carmenate M, Verdecia-S\\u00e1nchez L,\\net al. Safety and immunogenicity of anti-SARS-CoV-2 heterologous\\nschem...","J Clin Virol. 2022;2:100104. https://doi.org/10.1016/j.jcvp.2022.100104. 13 Food and Drug Administration. E6(R2) good clinical practice: in- tegrated addendum to ICH E6(R1). Guidance for Industry https://\\nwww.fda.gov/regulatory-information/search-fda-guidance-documents/\\ne6r2-good-clinical-practice-integrated-addendum-ich-e6r1; 2018. Accessed\\nFebruary 2021. 14\\nP\\u00e9rez-Caballero MD, Le\\u00f3n-\\u00c1lvarez JL, Due\\u00f1as-Herrera A, et al. Cuban guide for hypertension diagnosis, evaluation and treatment. Rev Cubana...","participants: an open-label phase 2a and double-blind, randomised, placebo-controlled, phase 2b, seamless, clinical trial. Lancet Respir Med. 2022;10:785\\u2013795. https://doi.org/10.1016/ S2213-2600(22)00100-X. 16\\nP\\u00e9rez-Rodr\\u00edguez S, Rodr\\u00edguez-Gonz\\u00e1lez MC, Ochoa-Azze R, et al. A randomised, double-blind phase I clinical trial of two recombi-\\nnant dimeric RBD COVID-19 vaccine candidates: safety, reac-\\ntogenicity\\nand\\nimmunogenicity. Vaccine. 2022;40:2068\\u20132075. https://doi.org/10.1016/j.vaccine.2022.02....","18 World Health Organization. Causality Assessment of an Adverse Event Following ImmunisationImmunisation (AEFI). 2nd ed. Geneva: WHO; 2018. https://appswho.int/iris/bitstream/handle/10665/ 259959/9789241513654-eng.pdf. Accessed December 10, 2020. 19\\nWHO consideration for an evaluation of COVID19 Vaccines. Point\\nto consider for manufacturers of COVID-19 vaccines; 2020. https://\\nwww.who.int/default-source/COVID19. Accessed February 2021. 20\\nR Core Team. R: a language and environment for statistic...","P. Effectiveness of heterologous and homolo- gous covid-19 vaccine regimens: living systematic review with network meta-analysis. BMJ. 2022;377:e069989. https://doi.org/10. 1136/bmj-2022-069989. 23\\nShaw R, Stuart A, Greenland M, Liu X, Nguyen JVT, Snape M,\\nCom-COV Study Group. Heterologous prime-boost COVID-19\\nvaccination: initial reactogenicity data. Lancet. 2021;397:2043\\u20132046. https://doi.org/10.1016/S0140-6736(21)01115-6. 24\\nStuart A, Shaw R, Liu X, et al. Immunogenicity, safety, and reac-\\nto...","and\\nprotein-subunit-based\\nCOVID-19\\nvaccine\\n(Convidecia/\\nZF2001): a randomised, observer-blinded, placebo-controlled trial. PLoS\\nMed. 2022;19:e1003953. https://doi.org/10.1371/journal. pmed.1003953. 26\\nKorang SK, von Rohden E, Veroniki AA, et al. Vaccines to prevent\\nCOVID-19: a living systematic review with Trial Sequential Anal-\\nysis and network meta-analysis of randomised clinical trials. PLoS\\nOne. 2022;17(1):1\\u201323. https://doi.org/10.1371/journal.pone.0260\\n733. 27\\nJangra S, Ye C, Rathnasinghe R...","CL, et al. Ef\\ufb01cacy of the ChA- dOx1 nCoV-19 covid-19 vaccine against the B.1.351 variant. N Engl J Med. 2021;384:1885\\u20131898. https://doi.org/10.1056/\\nNEJMoa2102214. 30\\nSadoff J, Gray G, Vandebosch A. Safety and ef\\ufb01cacy of single-dose\\nAd26.COV2.S vaccine against Covid-19. Safety and ef\\ufb01cacy of\\nsingle-dose Ad26.COV2.S vaccine against Covid-19. N Engl J Med. 2021;384:2187\\u20132201. https://doi.org/10.1056/NEJMoa2101544. 31\\nShinde V, Bhikha S, Hoosain Z, et al. Ef\\ufb01cacy of NVX-CoV2373\\nCovid-19 vaccine aga..."]],["color",{"type":"ndarray","array":["#aec7e8","#ff7f0e","#aec7e8","#aec7e8","#aec7e8","#ff7f0e","#aec7e8","#aec7e8","#2ca02c","#aec7e8","#aec7e8","#aec7e8","#999","#aec7e8","#aec7e8","#aec7e8","#ff7f0e","#999","#ffbb78","#ffbb78","#ffbb78","#ffbb78","#ffbb78","#ffbb78","#ffbb78","#ffbb78","#aec7e8","#aec7e8","#ffbb78","#ffbb78","#1f77b4","#ffbb78","#999","#999","#999","#1f77b4","#1f77b4","#ff7f0e","#ffbb78","#ff7f0e","#999","#1f77b4","#1f77b4","#1f77b4","#ffbb78","#999","#ff7f0e","#1f77b4","#1f77b4","#999","#2ca02c","#aec7e8","#aec7e8","#999","#aec7e8","#aec7e8","#999","#2ca02c","#aec7e8","#aec7e8","#999","#aec7e8","#1f77b4","#999","#1f77b4","#2ca02c","#aec7e8","#999","#aec7e8","#999","#2ca02c","#2ca02c","#2ca02c","#aec7e8","#ffbb78","#ffbb78","#999","#2ca02c","#2ca02c","#2ca02c"],"shape":[80],"dtype":"object","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1289","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1290"}}},"glyph":{"type":"object","name":"Scatter","id":"p1285","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.7},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1286","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1287","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1256","attributes":{"logo":"grey","tools":[{"type":"object","name":"HoverTool","id":"p1271","attributes":{"renderers":"auto","tooltips":"\\n    &lt;div style=\\"width:400px;\\"&gt;\\n    &lt;b&gt;Document id:&lt;/b&gt; @id &lt;br&gt;\\n    &lt;b&gt;Topic:&lt;/b&gt; @topic &lt;br&gt;\\n    &lt;b&gt;Document Content:&lt;/b&gt; @content\\n    &lt;/div&gt;\\n    "}},{"type":"object","name":"PanTool","id":"p1272"},{"type":"object","name":"WheelZoomTool","id":"p1273","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1274","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1275","attributes":{"syncable":false,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"ResetTool","id":"p1280"},{"type":"object","name":"SaveTool","id":"p1281"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1266","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1267","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1268"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1269"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1261","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1262","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1263"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1264"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1265","attributes":{"axis":{"id":"p1261"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1270","attributes":{"dimension":1,"axis":{"id":"p1266"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Legend","id":"p1291","attributes":{"title":"Knowledge Base Tospics","title_text_color":"#B1B1B1","title_text_font_style":"bold","border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1292","attributes":{"label":{"type":"value","value":"COVID-19 Vaccine"},"renderers":[{"id":"p1288"}],"index":1}},{"type":"object","name":"LegendItem","id":"p1293","attributes":{"label":{"type":"value","value":"COVID-19 Vaccine Efficacy"},"renderers":[{"id":"p1288"}],"index":0}},{"type":"object","name":"LegendItem","id":"p1294","attributes":{"label":{"type":"value","value":"Others"},"renderers":[{"id":"p1288"}],"index":12}},{"type":"object","name":"LegendItem","id":"p1295","attributes":{"label":{"type":"value","value":"Vaccine Safety Study"},"renderers":[{"id":"p1288"}],"index":30}}]}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}}},{"type":"object","name":"TabPanel","id":"p1365","attributes":{"title":"Failures","child":{"type":"object","name":"Figure","id":"p1301","attributes":{"sizing_mode":"stretch_width","x_range":{"type":"object","name":"Range1d","id":"p1310","attributes":{"start":1.7498100757598878,"end":10.971544551849366}},"y_range":{"type":"object","name":"Range1d","id":"p1311","attributes":{"start":-1.260787457227707,"end":7.3407241106033325}},"x_scale":{"type":"object","name":"LinearScale","id":"p1312"},"y_scale":{"type":"object","name":"LinearScale","id":"p1313"},"title":{"type":"object","name":"Title","id":"p1308","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1340","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1297","attributes":{"selected":{"type":"object","name":"Selection","id":"p1298","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1299"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"BD9yQBZ/qUA418dABD9yQJpJv0CBZ9tAX5UrQIdyaUBdIOxAWM7sQMZFvkCuqsZA8Z3EQOfAzEC1kNxA/z2CQAx1x0APCNlAwFrfQAU7kkA="},"shape":[20],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"2gcbQGzXGkDnCmVA2gcbQOLlWkBhoJxAt5GDQPQ/Tj9RrolAs/qeP3e3lEBE/ahAPFeIQPiuLz9LDsQ/z6EOQLEMJ0AF7D9Akp5qQDijJ0A="},"shape":[20],"dtype":"float32","order":"little"}],["topic",["Covid-19 Vaccine","Covid-19 Vaccine","Others","Covid-19 Vaccine","Covid-19 Vaccine","Vaccine Safety Study","Others","Covid-19 Vaccine","Others","Covid-19 Vaccine","Vaccine Safety Study","Vaccine Safety Study","Others","Covid-19 Vaccine Efficacy","Covid-19 Vaccine","Covid-19 Vaccine","Covid-19 Vaccine","Others","Others","Covid-19 Vaccine"]],["correctness",[false,true,false,false,false,false,false,false,false,false,false,true,true,false,false,false,true,true,false,false]],["questions",["What was the vaccine efficacy against symptomatic disease in the heterologous combination?","What percentage of participants had serologic evidence of a previous SARS-CoV-2 infection at baseline?","What is the efficacy of the vaccine in preventing severe COVID-19, considering only the cases where hospitalization or death occurred?","What was the efficacy of the vaccine against symptomatic COVID-19 disease in participants receiving a combination of two different vaccines, as measured by the percentage of participants who developed symptomatic disease?","What is the reason for excluding individuals who have received a COVID-19 vaccine within the last 30 days in an open-label phase 1 clinical trial?","What specific time frame is used to calculate vaccine efficacy, and how is it defined in the context of the vaccine administration schedule?","As a researcher from a prestigious institution, I am writing a scientific paper about a medical trial and I want to express my gratitude to the volunteers and clinical experts who contributed to the study. I also want to assure the readers that I have no personal conflicts of interest. Where should I send my proposal for full data sharing?","As a researcher in a developing country, what is a key advantage of the SOBER-ANA vaccines that would make them a more practical choice for our region, where access to cold storage is limited?","Who supervised and monitored the trial, and who wrote the manuscript?","What is the purpose of a dictionary?","How long do solicited systemic AEs last after the third dose?","What percentage of local adverse events were grade 3?","What percentage of participants withdrew their consent after receiving both doses of the treatment?","What type of vaccine is being discussed in the context of COVID-19 and its potential applications in preventing other infectious diseases?","What is the name of the vaccine being studied in a phase 2b clinical trial, specifically at the Finlay Vaccine Institute in Havana, Cuba?","What percentage of SARS-CoV-2 infections among the study subjects were prevented by the 3-dose vaccination schedule, considering the unique code assigned to each subject ensured confidentiality and data accuracy?","As a researcher who has worked on high-stakes studies like COVID-19 hospital documentation, I&#x27;m reviewing the efficacy of a novel vaccine and need to confirm which laboratory is responsible for confirming COVID-19 through RT-PCR.","As a researcher studying the effects of multi-task learning on patient outcomes, what medical conditions would make a patient ineligible for a program, assuming the patient already has a serious medical condition and is considering a recent paper on this topic?","What measures do you take to ensure data confidentiality and monitor the quality of your clinical trials?","What is the efficacy for?"]],["agent_answer",["## Step 1: Understand the context\\nThe context provided does not directly report the vaccine efficacy against symptomatic disease in the heterologous combination (So2P). However, it mentions that the study was stopped early due to advantageous results and an explosive epidemiological situation.\\n\\n## Step 2: Identify the primary outcome\\nThe primary outcome was defined as 106 symptomatic cases meeting a specific definition.\\n\\n## Step 3: Analyze the limitations\\nSince the context does not provide information on the vaccine efficacy against symptomatic disease, we cannot directly answer the user&#x27;s question.\\n\\n## Step 4: Provide a clear response\\nUnfortunately, the provided context does not include the efficacy of the vaccine against symptomatic disease in the combination with a different vaccine.\\n\\nThe final answer is: Unfortunately, the provided context does not include the efficacy of the vaccine against symptomatic disease in the combination with a different vaccine.","### Answer\\n\\n0.3% of participants had serologic evidence of a previous SARS-CoV-2 infection at baseline.","## Answer\\nThe efficacy of the vaccine in preventing severe COVID-19 among those who were hospitalized or died cannot be provided based on the given context. The data only includes the efficacy of the vaccine in preventing symptomatic COVID-19 and does not specify the number of severe cases, which is necessary to answer the question. Therefore, a specific answer cannot be provided.","## Step 1: Understand the context of the study\\nThe study found that the vaccine efficacy against symptomatic COVID-19 disease was 100% in the per-protocol population (PPP) in the two-dose So2P group.\\n\\n## Step 2: Identify the question\\nThe question is asking for the percentage of participants who developed symptomatic disease after receiving a combination of two different vaccines.\\n\\n## Step 3: Determine the answer\\nSince the study found that the vaccine efficacy was 100% in the per-protocol population (PPP) in the two-dose So2P group, this means that no participants developed symptomatic disease after receiving the combination of the two vaccines.\\n\\n## Step 4: Express the answer as a percentage\\nTherefore, the percentage of participants who developed symptomatic disease after receiving a combination of two different vaccines is 0%.\\n\\nThe final answer is: $\\\\boxed{0\\\\%}$","## Step 1: Understand the context of the query\\nThe provided context mentions a phase 1 clinical trial, but it does not specifically address the exclusion of individuals who have received a COVID-19 vaccine within the last 30 days.\\n\\n## Step 2: Identify the type of query\\nThe query is asking about the exclusion criteria for a phase 1 clinical trial, specifically regarding individuals who have received a COVID-19 vaccine within the last 30 days.\\n\\n## Step 3: Provide a general answer\\nIn general, phase 1 clinical trials often have specific exclusion criteria to ensure the safety and efficacy of the trial. These criteria may include exclusion of individuals who have received a COVID-19 vaccine within a certain timeframe (e.g., 30 days) to prevent interference with the trial&#x27;s objectives.\\n\\n## Step 4: Specify the answer\\nBased on the general understanding of phase 1 clinical trials, it is common practice to exclude individuals who have received a COVID-19 vaccine within the last 30 days to prevent potential interference with the trial&#x27;s objectives.\\n\\nThe final answer is: $\\\\boxed{Yes}$","## Answer\\n### Vaccine Efficacy Time Frame and Administration Schedule\\n\\nThe time frame used to calculate vaccine efficacy is at least 6 months after the third dose, but it&#x27;s defined in the context of the vaccine administration schedule as 14 days for the three-dose schedule. This means that the vaccine efficacy is estimated considering the vaccine and control arm cases occurring in the same calendar period, with a specific focus on the 14-day period after the third dose.","## Response\\nSince the context does not provide information about the proposal for full data sharing or the institution where the researcher is affiliated, it is not possible to provide an accurate answer to the user&#x27;s query.","## Answer\\n### Key Advantage of SOBER-ANA Vaccines\\nThe SOBER-ANA vaccines have a key advantage in regions with limited access to cold storage, as they are easier to distribute and use.","## Answer\\nThe trial was supervised by the Central Research Ethics Committee of the Ministry of Public Health and monitored by the National Clinical Trials Coordinating Centre (CENCEC). The manuscript was written by the authors.\\n\\n## Additional Information\\nThe Independent Safety Data Monitoring Board (ISDMB) also supervised the trial for safety and conducted interim analysis. The funding source had no role in data collection, analysis, or writing of the manuscript. The members of the SOBERANA Phase 3 team participated in different processes.","## Answer\\nThe purpose of a dictionary is to provide a collection of words, phrases, and their meanings, along with their usage examples and pronunciation guides. Dictionaries serve as a reference tool for individuals to look up and understand the meanings of unfamiliar words, phrases, and terms in various contexts, including language, science, history, and more.","## Answer\\nThe duration of solicited systemic AEs after the third dose is a median of 2 days, with a range of 0-3 days (25th-75th percentile).","## Answer\\n#### Local Adverse Events Grade 3 Percentage\\n\\nAccording to the retrieved context, less than 0.2% of local adverse events in the vaccine groups were grade 3.","## Answer\\n\\n### Calculating the Percentage of Participants Who Withdrew Consent\\n\\nTo calculate the percentage of participants who withdrew consent after receiving both doses, we need to know the total number of participants who received both doses and the number of participants who withdrew consent.\\n\\n### Given Information\\n\\n- 168 participants withdrew consent after receiving the first dose.\\n- 7 participants from the So2P group withdrew their consent after receiving the second dose.\\n\\n### Assumptions\\n\\n- The total number of participants who received both doses is not provided.\\n\\n### Conclusion\\n\\nThe given context does not provide enough information to calculate the percentage of participants who withdrew their consent after receiving both doses. We cannot determine the total number of participants who received both doses, making it impossible to calculate the desired percentage.","## Step 1: Identify the context of the query\\nThe query is related to COVID-19 vaccines and their potential applications in preventing other infectious diseases.\\n\\n## Step 2: Determine the type of vaccine discussed\\nThe context mentions subunit conjugate vaccines, viral vector vaccines, and inactivated vaccines, which are types of vaccines being discussed.\\n\\n## Step 3: Explain the potential applications of these vaccines\\nThese vaccines have the potential to prevent other infectious diseases, such as meningitis, and could also be used for SARS-CoV-2 immunization.\\n\\n## Step 4: Address the use of heterologous vaccination schemes\\nHeterologous vaccination schemes, which involve administering different types of vaccines in a specific order, are mentioned as a way to enhance immune response.\\n\\n## Step 5: Summarize the findings\\nThe query discusses the effectiveness of COVID-19 vaccines, including subunit conjugate vaccines, viral vector vaccines, and inactivated vaccines, and their potential applications in preventing other infectious diseases.\\n\\nThe final answer is: \\nSubunit conjugate vaccines, viral vector vaccines, and inactivated vaccines.","## Answer\\n### Vaccine Information\\n\\nThe vaccine being studied in a phase 2b clinical trial at the Finlay Vaccine Institute in Havana, Cuba is called SOBERANA 02.","## Answer\\nThe 3-dose vaccination schedule prevented 92.0% of SARS-CoV-2 infections among the study subjects.","## Answer\\nThe SARS CoV-2 national reference laboratory at the \\u201cPedro Kour\\u00ed\\u201d Tropical Medical Institute, Havana, Cuba, is responsible for confirming COVID-19 through RT-PCR.","## Answer\\n### Ineligibility Criteria for Multi-Task Learning Program\\n\\nUnfortunately, the provided context does not explicitly state the ineligibility criteria for the program. However, it does mention that the study included participants with various medical conditions, such as:\\n\\n* Asthma (grade 2/3)\\n* Chronic obstructive pulmonary disease (COPD)\\n* Cancer\\n* HIV or primary/secondary immunodeficiency\\n* Other medical conditions\\n\\nGiven that a serious medical condition already exists, the following conditions might make a patient ineligible for the program:\\n\\n* **Severe immunodeficiency**: Patients with HIV/AIDS or primary/secondary immunodeficiency may be at risk of severe complications if exposed to the program&#x27;s requirements.\\n* **Respiratory issues**: Participants with COPD or asthma (grade 2/3) may experience exacerbated symptoms or complications if the program requires physical exertion or exposure to allergens.\\n* **Cancer**: Patients with active cancer may be at risk of treatment complications or interactions with the program.\\n* **Other severe medical conditions**: The specific ineligibility criteria may include other severe medical conditions that could be exacerbated or complicated by the program.\\n\\n**Note**: Without explicit information on the ineligibility criteria, it is difficult to provide a comprehensive list of medical conditions that would make a patient ineligible for the program. It is recommended to consult the program&#x27;s documentation or contact the program administrators for more information.","## Data Confidentiality and Trial Quality Measures\\nThe sponsor ensures data confidentiality and monitors trial quality through the following measures:\\n\\n### Data Confidentiality\\n\\n*   A unique code is assigned to each subject at enrolment to guarantee confidentiality and permit linking information from both sources.\\n*   Data is recorded on hard copy forms specifically designed for the trial, and the \\"OpenClinic\\" medical record system is used to electronically store and manage data.\\n\\n### Trial Quality Monitoring\\n\\n*   All data management activities are governed by standardized working procedures.\\n*   The Central Research Ethics Committee has deliberated that it is not acceptable to administer the trial without rigorous quality control measures in place.\\n*   Data export and cleansing are carried out to ensure the accuracy and integrity of the data.\\n*   Interim and final analyses are conducted to evaluate the trial&#x27;s progress and identify any potential issues.","## Efficacy Explained\\n\\n### What is the purpose of efficacy?\\n\\nEfficacy refers to the ability of a treatment, intervention, or vaccine to produce a desired outcome or prevent a specific disease. In the context of the So2P vaccine, the primary purpose of efficacy is to estimate the risk of symptomatic COVID-19 being reduced by more than 60% compared to the placebo group. In essence, efficacy measures how well a treatment works in real-world settings, beyond just laboratory tests or animal studies."]],["reference_answer",["92.0% (95%CI 80.4\\u201396.7)","0.3% of participants","The vaccine efficacy for prevention of severe COVID-19 was 74.9% (95%CI: 33.7\\u201390.5)","92.0% (95%CI 80.4\\u201396.7)","Current or planned receipt of immunomodulatory drugs","The VE for So2P was estimated considering the So2P and control arm cases occurring in the same calendar period (14 days after dose 3 in So2P and 42 days after the 2nd dose in placebo).","Proposals for full data sharing should be sent to mariaeugenia@ipk.sld.cu, vicente.verez@finlay.edu.cu or ci\\ufb01nlay@finlay.edu.cu.","They are easier to distribute and use than those vaccines that must be stored at much lower temperatures and require powerful freezers.","The trial was supervised and monitored by MRG, BPM, IMH, and the manuscript was written by METR, CVS, WBR, DGR, YVB, VVB, and PVdS.","The Common Terminology Criteria for Adverse Events (CTCAE) Version 5.0 is used for assessing the causality of adverse events following immunisation.","2 days after the third dose (25\\u201375th percentile: 0.8\\u20137.5)","less than 0.2%","0.38%","The vaccine being discussed is a COVID-19 vaccine, specifically a RBD-tetanus toxoid conjugate vaccine","FINLAY-FR-1A vaccine","80.4\\u201396.7%","The SARS CoV-2 national reference laboratory at the \\u201cPedro Kour\\u00ed\\u201d Tropical Medical Institute, Havana, Cuba.","kidney disease, ischemic heart disease, diabetes mellitus, chronic obstructive pulmonary disease, asthma (grade 2/3), cancer, HIV or primary/secondary immunodeficiency.","A unique code assigned to each subject at enrolment guarantees confidentiality, while site visits verify adherence to the study protocol, good clinical practise, and standard operating procedures.","92.0%"]],["id",[6,38,49,6,23,35,69,66,67,75,48,41,40,71,74,51,28,45,32,52]],["content",["Findings We included 44,031 participants (52.0% female, 48.0% male; median age 50 years, range 19\\u201380 years; 7.0%\\nblack, 24.0% mixed-race, 59.0% white) in a context of initial Beta VOC predominance, with this variant being partially\\nreplaced by Delta near the trial\\u2019s end. Vaccine ef\\ufb01cacy in the heterologous combination was 92.0% (95%CI 80.4\\u201396.7)\\nagainst symptomatic disease. There were no severe COVID-19 cases in the vaccine group against 6 in the placebo\\ngroup. Two doses of SOBERANA-02 was 69.7%...","2021, 45.184 volunteers were screened and 44,031 were randomly assigned to So2 (14.679), So2P (14,677) or placebo (14,675) (Fig. 1). Participants\\u2019 characteristics were balanced between the\\nstudy arms (Table 1) and the gender and racial distri-\\nbution were representative of the Cuban demographic\\nstructure (see also S4-Table S3 for characteristics by age\\nand risk of severe COVID-19). At baseline, serologic\\nevidence of a previous SARS-CoV-2 infection was\\ndetected\\nin\\n0.3%\\nof\\nparticipants. All\\npartic...","for So2 and 2.2% for So2P) and headache (1.0% for placebo, 1.2% for So2 and 1.5% for So2P) (S9-Table S8). The occurrence of\\nserious (&lt;0.1%) and severe (0.1%) VAAE was equal be-\\ntween groups (S8-Table S7, S10-Table S9). 3.9% of all\\nthe AEs were grade 3 in the placebo group against 3.4%\\nand 4.2% for groups So2 and So2P, respectively and\\n7.9%, 6.7% and 6.7% were serious in these groups,\\nrespectively. All-cause mortality was 24 (0.2%) amongst\\nplacebo recipients against 9 and 11 (0.1%) in groups So2\\n...","Findings We included 44,031 participants (52.0% female, 48.0% male; median age 50 years, range 19\\u201380 years; 7.0%\\nblack, 24.0% mixed-race, 59.0% white) in a context of initial Beta VOC predominance, with this variant being partially\\nreplaced by Delta near the trial\\u2019s end. Vaccine ef\\ufb01cacy in the heterologous combination was 92.0% (95%CI 80.4\\u201396.7)\\nagainst symptomatic disease. There were no severe COVID-19 cases in the vaccine group against 6 in the placebo\\ngroup. Two doses of SOBERANA-02 was 69.7%...","to use reliable anticonception if female and in fertile age, and that provided written informed consent for participation were included. Exclusion criteria were previous receipt\\nof a COVID-19 vaccine, acute febrile illness or infectious\\ndisease, pregnancy, puerperium or breastfeeding, any\\nuncontrolled non-communicable disease, history of a\\nsevere allergic reaction to any component of the vac-\\ncines, current or planned (within 30 days) receipt of\\nimmunomodulatory drugs, history of COVID-19 infec-...","106 symptomatic cases meeting the primary outcome de\\ufb01nition. We used person-time of exposure in the summary statistics and group comparisons. Vaccine ef\\ufb01cacy was\\ncalculated in the per-protocol population (PPP) as\\npercentage reduction in the HR: VE = 100 \\u00d7 (1 \\u2013 HR) %,\\nin the vaccine groups as compared to the placebo group,\\nwith HR estimated from a strati\\ufb01ed Cox proportional\\nhazards model taking into account the de\\ufb01ned risk\\nstrata. To take the evolution of the epidemiological sit-\\nuation over time...","be made available after publica- tion. Proposals for full data sharing should be sent to: mariaeugenia@ ipk.sld.cu, vicente.verez@\\ufb01nlay.edu.cu or ci\\ufb01nlay@\\ufb01nlay.edu.cu. These proposals will be reviewed and must be approved by the sponsor\\nand the senior investigators. Lastly, a data access agreement must be\\nsigned. Declaration of interests\\nVVB, YVB, DGR, YCR, SFC are authors of two patent applications. The\\nother authors declare no competing interests. No author received an\\nhonorarium for contribut...","easier to distribute and use than those vaccines that must be stored at much lower temperatures and require powerful freezers. This represents a key advan-\\ntage in less-wealthy countries. Furthermore, they rely on\\nan established and widely used vaccine technology, and\\ntheir production can be cost-effectively implemented\\nand scaled up in biotechnology facilities in the global\\nsouth that are manufacturing other protein subunit\\nproducts. Overall, our results indicate that the SOBER-\\nANA vaccines ar...","NHM were clinical investigators. MRG, BPM, IMH supervised and monitored the trial. CVS, WBR and PVdS performed the statistical analysis. RGMR, OST, PVV, JPBC and ELM were involved in data\\nacquisition and data curation. SFC, YCR, YVB, MMP were responsible\\nfor vaccine development, manufacturing and project administration. DD, MMG and AB contributed to trial design. METR, CVS, WBR, DGR,\\nYVB, VVB and PVdS wrote the manuscript. All authors critically\\nreviewed\\nthe\\nmanuscript\\nfor\\nimportant\\nintellectual...","participants: an open-label phase 2a and double-blind, randomised, placebo-controlled, phase 2b, seamless, clinical trial. Lancet Respir Med. 2022;10:785\\u2013795. https://doi.org/10.1016/ S2213-2600(22)00100-X. 16\\nP\\u00e9rez-Rodr\\u00edguez S, Rodr\\u00edguez-Gonz\\u00e1lez MC, Ochoa-Azze R, et al. A randomised, double-blind phase I clinical trial of two recombi-\\nnant dimeric RBD COVID-19 vaccine candidates: safety, reac-\\ntogenicity\\nand\\nimmunogenicity. Vaccine. 2022;40:2068\\u20132075. https://doi.org/10.1016/j.vaccine.2022.02....","after the third dose (Fig. 2, S6-Table S4, S7-Table S5, S8-\\nTable S6). Their severity in the vaccine groups changed\\nslightly from 6.5% after the \\ufb01rst dose to 8.8% after the\\nsecond dose for grade 2 events, and from 0.6% to 0.4%\\nfor grade 3 ones. Solicited systemic AEs in the vaccine\\ngroups lasted a median of 1 day after the \\ufb01rst (25\\u201375th\\npercentile: 0\\u20132) and second doses (25\\u201375th percentile:\\n0\\u20133), and 2 days after the third dose (25\\u201375th percentile:\\n0.8\\u20137.5). The frequency of solicited AE was ver...","ef\\ufb01cacy anal- ysis included 42509 subjects: 14354 in the So2, 13871 in the So2P, and 14284 in the placebo group. Follow-up\\nfrom 14 days after the second dose in the two doses\\nanalysis totalled 70,959 and 64,926 persons-weeks in the\\nplacebo and So2 arm, respectively, while in the three\\ndoses analysis the corresponding follow-up time was\\n20,047 persons-weeks in the placebo and 47,088 per-\\nsons-weeks in the So2P group. Safety\\nLocal\\nsolicited\\nVaccine-Associated\\nAdverse\\nEvents\\n(VAAEs) occurred somewh...","received the \\ufb01rst dose of the treatment they were allo-\\ncated to. After receiving the \\ufb01rst dose, 168 (0,38%) partici-\\npants withdrew their consent and did not receive the\\nsecond dose and after that dose, 7 (0,05%) participants\\nfrom the So2P group withdrew their consent. 412\\n(0.94%) and 123 (0.84%) participants diagnosed with\\nsymptomatic PCR positive SARS-CoV-2 infection were\\nexcluded before receiving the second and the third dose,\\nrespectively. Protocol deviations - 364 (0.83%) in total-\\nwere du...","clinical ef\\ufb01cacy of COVID-19 vaccines: a systematic review and network meta-analysis. Sci Rep. 2021;11:22777. https://doi.org/10.1038/ s41598-021-02321-z. 3 WHO. Vaccine equity. https://www.who.int/campaigns/vaccine-\\nequity. Accessed February 22, 2021. 4\\nValdes-Balbin Y, Santana-Medero D, Quintero L, et al. SARS-CoV-2\\nRBD-tetanus toxoid conjugate vaccine induces a strong neutralising\\nimmunity in preclinical studies. ACS Chem Biol. 2021;16:1223\\u2013\\n1233. https://doi.org/10.1101/2021.02.08.430146. 5\\n...","J Clin Virol. 2022;2:100104. https://doi.org/10.1016/j.jcvp.2022.100104. 13 Food and Drug Administration. E6(R2) good clinical practice: in- tegrated addendum to ICH E6(R1). Guidance for Industry https://\\nwww.fda.gov/regulatory-information/search-fda-guidance-documents/\\ne6r2-good-clinical-practice-integrated-addendum-ich-e6r1; 2018. Accessed\\nFebruary 2021. 14\\nP\\u00e9rez-Caballero MD, Le\\u00f3n-\\u00c1lvarez JL, Due\\u00f1as-Herrera A, et al. Cuban guide for hypertension diagnosis, evaluation and treatment. Rev Cubana...","80.4\\u201396.7%; P &lt; 0.001) for prevention of symptomatic SARS-CoV-2 infection by the 3-dose schedule (Table 2, Fig. 3, S15-Fig. S4). Subgroup\\u2019s\\nanalysis yields remarkably consistent VE estimates, but\\nlacks precision for much of the strata (S16-Fig. S5). Severe COVID-19 occurred in 6 and 0 participants in the\\nplacebo and So2P group, respectively (S12-Table S10). There were no deaths from COVID-19 disease. Including in the analysis subjects that were PCR\\nnegative but had a IgG/IgM positive test at inc...","COVID-19 hospital doctors and reviewed by speci\\ufb01cally trained medical research team members. The study\\u2019s Principal Investigator resolved any discrep- ancy. COVID-19 symptomatic disease was considered if\\nparticipants had at least one major symptom or sign\\n(dyspnoea, oxygen saturation \\u226492%, persistent thoracic\\npain, neurological disorders, clinical or radiographic\\nevidence of pneumonia) or two minor symptoms (fever,\\nchills, myalgia, headache, sore throat, running nose,\\ndiarrhoea/vomiting, myalgia,...","kidney disease, ischemic heart disease, diabetes mellitus, chronic obstructive pulmonary disease, asthma (grade 2/3), cancer, HIV or primary/secondary\\nimmunode\\ufb01ciency.","data export. A unique code assigned to each subject at enrolment guaranteed con\\ufb01dentiality and permitted linking information from both sources. The\\nsponsor\\u2019s staff ensured data export and cleansing for the\\nsubsequent carrying out the interim and \\ufb01nal analyses. All data management activities were governed by\\nstandardised working procedures. We developed a monitoring and audit plan for\\nquality control. During site visits, the proper conduct of\\nthe trial was veri\\ufb01ed by assessing adherence to the st...","well over the WHO-set 50% threshold.19 After completion of the heterolo- gous schedule with SOBERANA-Plus, VE attained an excellent 92.0%. Ef\\ufb01cacy to prevent severe COVID-19\\nwas 74.9% for the two doses regimen; no severe\\ncase presented under the heterologous scheme. The\\noccurrence of serious and severe AEs was very rare\\nCOVID-19 disease\\nTwo-dose Vaccine Ef\\ufb01cacy\\nPlacebo\\nSo2\\nn of events, PPP\\n136\\n38\\nPerson- weeks follow-up\\n70,959\\n64,926\\nIncidence rate per 1000 Person-Years (95% CI)\\n99.9 (83.8; 118...."]],["color",["#ba0e0e","#0a980a","#ba0e0e","#ba0e0e","#ba0e0e","#ba0e0e","#ba0e0e","#ba0e0e","#ba0e0e","#ba0e0e","#ba0e0e","#0a980a","#0a980a","#ba0e0e","#ba0e0e","#ba0e0e","#0a980a","#0a980a","#ba0e0e","#ba0e0e"]]]}}},"view":{"type":"object","name":"CDSView","id":"p1341","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1342"}}},"glyph":{"type":"object","name":"Scatter","id":"p1337","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.7},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1338","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1339","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1355","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1346","attributes":{"selected":{"type":"object","name":"Selection","id":"p1347","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1348"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"LcpCQMAOVkCoe4BAFEorQL/ceEBrQndABD9yQDoOYUBTO7FA6smGQB5qeEC9a45AqWxEQFlMTEBX3wFAVZA4QAwxSUAlu5VA4sypQCScp0DmQq9AcmegQJuMxECaSb9AoZnMQApL0kB0DB5AhO5QQAx1x0ApQrtAGYrLQN7AsUDAWt9Adb7uQD1b6UCBZ9tAxpTaQMFKjkAWf6lAloeBQPGdxECuqsZA56nTQJEMqEBd5NNADwjZQDKIY0D4gb5AxkW+QDjXx0AxV7JA/z2CQAU7kkAvyPNAExyUQFfvIkDrN6hAdIO1QGzxl0B1wmZAxXqVQHqFkUAkd69AR3SfQLS+4ECyXcFAh3JpQF0g7EBvXIVAX5UrQNOyyEDnwMxAcK+sQFuVnEC1kNxAWM7sQGjr5kBroMRA7+3UQKF9uUA="},"shape":[80],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"8SEVQDgCdUAIIUZAFngbQA6EUUCqRoJA2gcbQBA2qT+vCQk/qLKBPwMS3D/TM98/6I6RPzB05z8QYCBA6sJQQPWmh0AGUzhAzQNKQMOyXEBWbGhApF9qQOc2PEDi5VpAgcoXQLdI3j9OFT5ACLs6QLEMJ0CoVR5AMQSjQAu9LECSnmpAWMguQOE0FEBhoJxAW1SXQMF0kUBs1xpAcM+fQDxXiEBE/ahAl6a5QDpwsEDXRPU/Bew/QCABlUCOxLtAd7eUQOcKZUAoHuE/z6EOQDijJ0BG1gVAsqKFP3FO5D9IB71AV+ybP2jo/z9nJidAXVXDPtVkKT8egqBAIt6LQHZpmED72Lo/9D9OP1GuiUAe63dAt5GDQP/bgj/4ri8/MPxiP7cyzj9LDsQ/s/qeP6m2bT/q8TA+82DMPmyabj4="},"shape":[80],"dtype":"float32","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1356","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1357"}}},"glyph":{"type":"object","name":"Scatter","id":"p1352","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.2}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1353","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1354","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1309","attributes":{"logo":"grey","tools":[{"type":"object","name":"PanTool","id":"p1324"},{"type":"object","name":"WheelZoomTool","id":"p1325","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1326","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1327","attributes":{"syncable":false,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"ResetTool","id":"p1332"},{"type":"object","name":"SaveTool","id":"p1333"},{"type":"object","name":"HoverTool","id":"p1300","attributes":{"renderers":[{"id":"p1340"}],"tooltips":"\\n    &lt;div style=\\"width:400px;\\"&gt;\\n    &lt;b&gt;Document id:&lt;/b&gt; @id &lt;br&gt;\\n    &lt;b&gt;Topic:&lt;/b&gt; @topic &lt;br&gt;\\n    &lt;b&gt;Question:&lt;/b&gt; @questions &lt;br&gt;\\n    &lt;b&gt;agent Answer:&lt;/b&gt; @agent_answer &lt;br&gt;\\n    &lt;b&gt;Reference Answer:&lt;/b&gt; @reference_answer &lt;br&gt;\\n    &lt;b&gt;Correctness:&lt;/b&gt; @correctness &lt;br&gt;\\n    &lt;b&gt;Content:&lt;/b&gt; @content\\n    &lt;/div&gt;\\n    "}}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1319","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1320","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1321"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1322"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1314","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1315","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1316"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1317"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1318","attributes":{"axis":{"id":"p1314"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1323","attributes":{"dimension":1,"axis":{"id":"p1319"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Legend","id":"p1343","attributes":{"title":"Question Correctness","title_text_color":"#B1B1B1","title_text_font_style":"bold","border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1344","attributes":{"label":{"type":"value","value":"False"},"renderers":[{"id":"p1340"}],"index":0}},{"type":"object","name":"LegendItem","id":"p1345","attributes":{"label":{"type":"value","value":"True"},"renderers":[{"id":"p1340"}],"index":1}}]}},{"type":"object","name":"LabelSet","id":"p1361","attributes":{"level":"glyph","source":{"type":"object","name":"ColumnDataSource","id":"p1358","attributes":{"selected":{"type":"object","name":"Selection","id":"p1359","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1360"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"6hbIQL+ebECD8m5Ahu+/QBRdvkA="},"shape":[5],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"QyWlQBDOCkBXc4xA7oInQPBTVj8="},"shape":[5],"dtype":"float32","order":"little"}],["topic",["Vaccine Safety Study","COVID-19 Vaccine Efficacy","COVID-19 Vaccine","COVID-19 Vaccine","COVID-19 Vaccine Efficacy"]]]}}},"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"text":{"type":"field","field":"topic"},"text_color":{"type":"value","value":"#B1B1B1"},"text_font_size":{"type":"value","value":"12pt"},"text_font_style":{"type":"value","value":"bold"},"text_align":{"type":"value","value":"center"}}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}}}],"tabs_location":"below"}}]}}';
+        const render_items = [{"docid":"8ec6f4de-1cb5-4749-82c4-3ae10a5a7038","roots":{"p1366":"ddfb1c2b-d6bb-49d2-aa7a-a85c2d356066"},"root_ids":["p1366"]}];
+        root.Bokeh.embed.embed_items(docs_json, render_items);
+        }
+        if (root.Bokeh !== undefined) {
+          embed_document(root);
+        } else {
+          let attempts = 0;
+          const timer = setInterval(function(root) {
+            if (root.Bokeh !== undefined) {
+              clearInterval(timer);
+              embed_document(root);
+            } else {
+              attempts++;
+              if (attempts > 100) {
+                clearInterval(timer);
+                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+              }
+            }
+          }, 10, root)
+        }
+      })(window);
+    });
+  };
+  if (document.readyState != "loading") fn();
+  else document.addEventListener("DOMContentLoaded", fn);
+})();
+    </script>
+
+                <div id="ddfb1c2b-d6bb-49d2-aa7a-a85c2d356066" data-root-id="p1366" style="display: contents;"></div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+
+                <div class="section-title">SELECTED METRICS</div>
+
+                
+
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    function opentab(evt, name) {
+    // Declare all variables
+    let i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(name).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
