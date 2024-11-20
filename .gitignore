@@ -1,0 +1,7 @@
+.venv
+docs
+indexes
+models
+flagged/
+gradio_cached_examples/
+chunks.pkl

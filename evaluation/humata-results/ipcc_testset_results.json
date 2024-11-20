@@ -1,0 +1,142 @@
+[
+    {
+        "question": "What is the scope of the GHG emissions covered by this category?",
+        "answer": "The scope of the GHG emissions covered includes CO2 from fossil fuel combustion (CO2-FFI), net CO2 from land use, land-use change, and forestry (CO2-LULUCF), and other GHG emissions such as CH4, N2O, and fluorinated gases, expressed in CO2-equivalents using GWP100-AR6. Emissions from international aviation and shipping are not included.",
+        "context": [
+            "share of historical cumulative net anthropogenic CO, emissions per region from 1850 to 2019 in GtCO,. This indludes CO,-FFI and CO,-LULUCF. Other GHG emissions are not included. CO,-LULUCF emissions are subject to high uncertainties, reflected by a global uncertainty estimate of ±70% (90% confidence interval). Panel (b) shows the distribution of regional GHG emissions in tonnes CO,-eq per capita by region in 2019. GHG emissions are categorised into: CO,-FFI; net CO,-LULUCF; and other GHG emissions (CH,, N,O, fluorinated gases, expressed in CO,-eq using GWP100-AR6). The height of each rectangle shows per capita emissions, the width shows the population of the region, so that the area of the rectangles refers to the total emissions for each region. Emissions from international aviation and shipping are not indluded. In the case of two regions, the area for CO,-LULUCF is below the"
+        ]
+    },
+    {
+        "question": "What type of renewable energy has a capacity to generate approximately twice as much electricity as solar photovoltaic (PV) systems for the same amount of installed capacity?",
+        "answer": "Wind energy has a capacity to generate approximately twice as much electricity as solar photovoltaic (PV) systems for the same amount of installed capacity. This information is indicated in the citation that discusses the electricity production share reflecting different capacity factors.",
+        "context": [
+            "Since AR5, the installed capacity"
+        ]
+    },
+    {
+        "question": "What specific strategies can be employed by the private sector to increase its commitment to addressing climate change, particularly in terms of building business cases, accountability mechanisms, and monitoring progress?",
+        "answer": "I can not provide an answer based on the provided documents."
+    },
+    {
+        "question": "As a climate scientist analyzing data from the IPCC to inform policy recommendations for reducing greenhouse gas emissions and air pollutants, what is the projected outcome of targeted reductions of air pollutant emissions compared to reductions in GHG emissions?",
+        "answer": "Targeted reductions of air pollutant emissions lead to more rapid improvements in air quality compared to reductions in GHG emissions only. However, in the long term, further improvements are projected in scenarios that combine efforts to reduce air pollutants as well as GHG emissions.",
+        "context": [
+            "(high confidence). Targeted reductions of air pollutant emissions lead to more rapid improvements in air quality compared to reductions in GHG emissions only, but in the long term, further improvements are projected in scenarios that combine efforts to reduce air pollutants as"
+        ]
+    },
+    {
+        "question": "What is the level of confidence in the impacts of climate change on built assets, economic activity, and health?",
+        "answer": "The level of confidence in the impacts of climate change on built assets, economic activity, and health is assessed as medium to high confidence.",
+        "context": [
+            "Wildfires in many regions have affected built assets, economic activity, and health (medium to high confidence). In cities and settlements, dimate. Climate change has caused widespread adverse impacts and related losses and damages to nature and people (high confidence). Losses and damages are unequally distributed across"
+        ]
+    },
+    {
+        "question": "What are some specific examples of benefits of adaptation measures beyond disaster risk management, such as improvements in agricultural productivity, health, and biodiversity conservation?",
+        "answer": "Some specific examples of benefits of adaptation measures beyond disaster risk management include: - Improvements in agricultural productivity - Enhancements in health and well-being - Increased food security - Livelihood benefits - Biodiversity conservation - Reduction of risks and damages These benefits are associated with adaptation measures that are found in various sectors, such as food, livelihoods, social protection, and water and sanitation.",
+        "context": [
+            "benefit health and well-being are found in other sectors (e.g., food, livelihoods, social protection, water and sanitation, infrastructure) (high confidence). {WGII SPM C.2.1, WGII SPM C.2.2, WGII TS.D.1.2, WGII TS.D.1.4, WGII TS.D.4.2, WGII TS.D.8.3,WGII 4 ES; SRCCL SPM B.1.1} Adaptation can generate multiple additional benefits such as improving agricultural productivity, innovation, health and well-being, food security, livelihood, and biodiversity conservation as well as reduction of risks and damages (very high confidence). {WGII SPM C1.1}"
+        ]
+    },
+    {
+        "question": "What is the projected reduction in global GHG emissions by 2030 if the goal of limiting warming to 1.5\u00b0C is achieved with no or limited overshoot, considering the increased severity of climate-related risks at this temperature threshold?",
+        "answer": "If the goal of limiting warming to 1.5°C is achieved with no or limited overshoot, net global GHG emissions are projected to fall by 43% (34 to 60%) below 2019 levels by 2030.",
+        "context": [
+            "In modelled pathways that limit warming to 1.5°C (>50%) with that limit warming to 1.5℃ (>50%) with no or limited overshoot, net global GHG emissions are projected to fall by 43 [34 to 60]%143 below"
+        ]
+    },
+    {
+        "question": "As a climate scientist reviewing research papers on reducing short-lived climate forcers and air pollution, I'm wondering: What is the projected outcome of reducing air pollutant emissions compared to reducing only GHG emissions, given that I've seen improvements in air quality with targeted reductions of air pollutant emissions?",
+        "answer": "Targeted reductions of air pollutant emissions lead to more rapid improvements in air quality compared to reductions in GHG emissions only. However, in the long term, further improvements are projected in scenarios that combine efforts to reduce air pollutants as well as GHG emissions.",
+        "context": [
+            "(high confidence). Targeted reductions of air pollutant emissions lead to more rapid improvements in air quality compared to reductions in GHG emissions only, but in the long term, further improvements are projected in scenarios that combine efforts to reduce air pollutants as"
+        ]
+    },
+    {
+        "question": "What are the geographical regions used in AR6?",
+        "answer": "The geographical regions used in AR6 refer to larger areas, such as sub-continents and oceanic regions, or to typological regions, such as monsoon regions, coastlines, mountain ranges, or cities. A new set of standard AR6 WGI reference land and ocean regions has been defined.",
+        "context": [
+            "as monsoon regions, coastlines, mountain ranges or cities. A new set of standard AR6 WGI reference land and ocean regions have been defined. WGIIl allocates countries to"
+        ]
+    },
+    {
+        "question": "Can you specify the types of larger geographical areas to which the AR6 regions refer, such as sub-continents, oceanic regions, monsoon regions, coastlines, mountain ranges, or cities?",
+        "answer": "The AR6 regions refer to larger geographical areas such as sub-continents and oceanic regions, as well as typological regions like monsoon regions, coastlines, mountain ranges, or cities.",
+        "context": [
+            "Depending on the dlimate information context, geographical regions in AR6 may refer to larger areas, such as sub-continents and oceanic regions, or to typological regions, such"
+        ]
+    },
+    {
+        "question": "What are the specific risks to food production and human health due to climate change, considering the potential for heat-induced labour productivity losses and species losses exceeding 1850-2005 temperature thresholds?",
+        "answer": "The specific risks to food production and human health due to climate change include: - Sudden food production losses from heat and drought, which are exacerbated by heat-induced labour productivity losses. - Increased risks of malnutrition and climate-related mortality, especially in tropical regions, due to the interaction of these factors. - Risks of species losses, which can further impact ecosystems and food systems. These risks highlight the interconnectedness of climate change impacts on food security and human health.",
+        "context": [
+            "concurrent heatwaves and drought. Risks to health and food production will be made more severe from the interaction of sudden food production losses from heat and drought, exacerbated by heat-",
+            "a) Risk of species losses b) Heat-humidity risks to human health c) Food production impacts"
+
+        ]
+    },
+    {
+        "question": "As a climate scientist researching carbon budget scenarios to understand the impact of increasing CO2 emissions on natural carbon sinks, at what probability is the global warming limit set at 2\u00b0C?",
+        "answer": "The global warming limit set at 2°C has a probability of greater than 67% for being achieved.",
+        "context": [
+            "for 2C (67% likelihood) this is 1150 GtCO2.128"
+        ]
+    },
+    {
+        "question": "What are the benefits of international cooperation for achieving ambitious climate change mitigation goals?",
+        "answer": "The benefits of international cooperation for achieving ambitious climate change mitigation goals include: - Mobilizing and enhancing access to finance, particularly for developing countries, vulnerable regions, sectors, and groups. - Enabling greater implementation and more ambitious actions through financial, technology, and capacity-building support. - Facilitating shifting development pathways towards sustainability by integrating equity and climate justice into national and international policies. - Helping reconcile contested interests, world views, and values about how to address climate change through multilateral governance efforts.",
+        "context": [
+            "International cooperation is a critical enabler for achieving ambitious climate change mitigation goals and climate resilient development (high confidence). Climate resilient development is enabled by increased international cooperation including mobilising and enhancing access to finance, particularly for developing countries, vulnerable regions, sectors and groups and aligning finance flows especially by mobilising and enhancing access to finance for vulnerable",
+            "efforts can help reconcile contested interests, world views and values"
+        ]
+    },
+    {
+        "question": "What is the highest estimated temperature increase by 2100, based on the SSP scenarios, considering the best estimates and very likely ranges provided in the IPCC reports?",
+        "answer": "The highest estimated temperature increase by 2100, based on the SSP scenarios, is 4.4°C with a very likely range of 3.3 to 5.7°C in the very high GHG emissions scenario (SSP5-8.5).",
+        "context": [
+            "very likely ranges of warming for 2081-2100 with respect to 1850-1900 vary from 1.4 [1.0 to 1.8]℃ in the very low GHG emissions scenario (SSP1-1.9) to 2.7 [2.1 to 3.5]℃ in the intermediate GHG emissions scenario (SSP2-4.5) and 4.4 [3.3 to 5.7]℃ in the very high GHG emissions"
+        ]
+    },
+    {
+        "question": "What specific time frame is used to determine when a certain level of global warming is reached, and how is this threshold defined?",
+        "answer": "The specific time frame used to determine when a certain level of global warming is reached is relative to the period of 1850–1900. This threshold is defined by comparing the global surface temperature change from that baseline period to current temperatures.",
+        "context": [
+            "change from 1850-1900 to 2010-2019. This estimate arises from an assessment of effective radiative forcing and climate sensitivity. The global surface temperature (shown as annual anomalies from a 1850-1900 baseline) has increased by around 1.1℃ since warming observed between 1850-1900 and 2010-2019 is caused"
+        ]
+    },
+    {
+        "question": "As a researcher aiming to minimize global warming to 1.5\u00b0C by 2030, I'm analyzing data on projected GHG emissions reductions. Can you help me understand how a 50% overshoot scenario would impact the 2030 target, and what would be the actual reduction in GHG emissions by then, considering the study's findings on global emissions trends until 2050?",
+        "answer": "In a scenario that allows for a 50% overshoot, the best estimates indicate that net global GHG emissions are projected to fall by 43% (34 to 60%) below 2019 levels by 2030. This reduction is part of pathways that limit warming to 1.5°C with no or limited overshoot.",
+        "context": [
+            "In modelled pathways that limit warming to 1.5℃ (>50%) with that limit warming to 1.5℃ (>50%) with no or limited overshoot, net global GHG emissions are projected to fall by 43 [34 to 60]%143 below 2019 levels by 2030, 60 [49 to 77]% by 2035, 69 [58 to 90]% by 2040 and 84 [73 to 98]% by 2050 (high confidence) (Section 2.3.1, Table"
+        ]
+    },
+    {
+        "question": "What is the level of confidence in reducing future risks of involuntary migration and displacement due to climate change?",
+        "answer": "The level of confidence in reducing future risks of involuntary migration and displacement due to climate change is assessed as high confidence.",
+        "context": [
+            "Reducing future risks of involuntary migration and displacement due to climate change is possible through cooperative, international efforts to enhance institutional adaptive capacity and sustainable development (high confidence). Increasing adaptive capacity minimises"
+        ]
+    },
+    {
+        "question": "What is the expected difference in the rate of global warming reduction between scenarios that target both air pollutant emissions and greenhouse gas (GHG) emissions, versus those that only target GHG emissions?",
+        "answer": "The expected difference in the rate of global warming reduction is that targeted reductions of air pollutant emissions lead to more rapid improvements in air quality compared to reductions in GHG emissions only. However, in the long term, further improvements are projected in scenarios that combine efforts to reduce air pollutants as well as GHG emissions.",
+        "context": [
+            "(high confidence). Targeted reductions of air pollutant emissions lead to more rapid improvements in air quality compared to reductions in GHG emissions only, but in the long term, further improvements are projected in scenarios that combine efforts to reduce air pollutants as"
+        ]
+    },
+    {
+        "question": "How will the effectiveness of adaptation options be impacted if global warming continues to rise, and what steps can be taken to mitigate this effect?",
+        "answer": "The effectiveness of adaptation options will decrease with increasing global warming, as losses and damages will increase and additional human and natural systems will reach adaptation limits. For example, common adaptation responses in agriculture and water-related adaptation options will become less effective as temperatures rise. To mitigate this effect, long-term planning and the implementation of adaptation actions that are flexible, multi-sectoral, and inclusive can help avoid maladaptation and create more resilient systems.",
+        "context": [
+            "With increasing warming, adaptation options will become more constrained and less effective. At higher levels of warming, losses and damages will increase, and additional human and natural systems will reach adaptation limits. Integrated, cross-cutting multi-sectoral solutions increase the effectiveness of adaptation. Maladaptation can create lock-ins of vulnerability, exposure and risks but can be avoided by long-term planning and the implementation of adaptation actions that are flexible, multi-sectoral and inclusive. (high confidence). The effectiveness of adaptation to reduce climate risk is documented for specific contexts, sectors and regions and will decrease with increasing warming (high confidence)175. For example, common adaptation responses in agriculture - adopting improved cultivars and agronomic practices, and changes in cropping patterns and crop systems - will become less effective from 2C to higher levels of warming (high confidence). The effectiveness of most water-related. global warming (high confidence). Globally, adaptation options related"
+        ]
+    },
+    {
+        "question": "As an environmental researcher analyzing data on greenhouse gas emissions to identify the significant contributors to global warming, I'm trying to understand the different colored GHGs in Figure 2.1 - what do they specifically represent?",
+        "answer": "In Figure 2.1, the different colored GHGs represent the following: - Dark green: CO2 from fossil fuel combustion and industrial processes (CO2-FFI) - Green: Net CO2 from land use, land-use change, and forestry (CO2-LULUCF) - Light blue: CH4 (methane), N2O (nitrous oxide), and fluorinated gases (HFCs, PFCs, SF6, NF3).",
+        "context": [
+            "anthropogenic GHG emissions include CO, from fossil fuel combustion and industrial processes (CO,-FFI) (dark green); net CO, from land use, land-use change and forestry (CO>-LULUCF) (green); CHc N:O; and fluorinated gases (HFCs, PFCs, SFE, NF.)"
+        ]
+    }
+]
