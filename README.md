@@ -6,7 +6,7 @@
 
 ## Overview 
 
-This project is a prototype developed for a research paper focused on democratizing AI tools for managing PDF documents in resource-limited contexts. It serves as an advanced Retrieval-Augmented Generation (RAG) pipeline example, showcasing how AI can facilitate document management.
+This project is a prototype developed for a [research paper](https://rcci.uci.cu/) focused on democratizing AI tools for managing PDF documents in resource-limited contexts. It serves as an advanced Retrieval-Augmented Generation (RAG) pipeline example, showcasing how AI can facilitate document management.
 
 ## Features
 
@@ -40,9 +40,24 @@ pip install -U pip setuptools wheel
 pip install -r requirements.txt
 ```
 
-4. Open the notebook (`notebooks/rag.ipynb`)
+4. Or use [uv](https://github.com/astral-sh/uv)
 
-5. (Optional) Setup pypi cuban repos
+```sh
+uv sync
+
+# uv will use the cuban national pypi repos 
+# if you don't want this open the `pyproject.toml`
+# and remove the following:
+# [[tool.uv.index]]
+# url = "http://nexus.prod.uci.cu/repository/pypi-all/simple"
+# default = true
+```
+
+5. Open the notebook ([rag.ipynb](notebooks/rag.ipynb))
+
+## (Optional) Setup PyPi cuban repos
+
+If your using uv you don't need to do this:
 
 ```ini
 # edit
@@ -61,12 +76,12 @@ trusted-host = nexus.prod.uci.cu
 
 Since this is currently a prototype all of the main code is in a single jupyter notebook 
 
-- `rag.ipynb`: notebook with rag pipeline and evaluations
-- `colab.ipynb`: colab ready notebook
-- `chunking.ipynb`: exploration of different chunking strategies
-- `indexing.ipynb`: exploration of different indexing strategies
-- `retrieval.ipynb`: exploration of different retrieval strategies
-- `diagrams.ipynb`: code for creating the diagrams of the paper
+- [rag.ipynb](notebooks/rag.ipynb): notebook with rag pipeline and evaluations
+- [colab.ipynb](notebooks/colab.ipynb): colab ready notebook
+- [chunking.ipynb](notebooks/chunking.ipynb): exploration of different chunking strategies
+- [indexing.ipynb](notebooks/indexing.ipynb): exploration of different indexing strategies
+- [retrieval.ipynb](notebooks/retrieval.ipynb): exploration of different retrieval strategies
+- [diagrams.ipynb](notebooks/diagrams.ipynb): code for creating the diagrams of the paper
 
 ## Contributing
 
