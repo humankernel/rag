@@ -53,7 +53,7 @@ uv sync
 # default = true
 ```
 
-5. Open the notebook ([rag.ipynb](notebooks/rag.ipynb))
+1. Open the notebook ([rag.ipynb](rag.ipynb))
 
 ## (Optional) Setup PyPi cuban repos
 
@@ -76,8 +76,7 @@ trusted-host = nexus.prod.uci.cu
 
 Since this is currently a prototype all of the main code is in a single jupyter notebook 
 
-- [rag.ipynb](notebooks/rag.ipynb): notebook with rag pipeline and evaluations
-- [colab.ipynb](notebooks/colab.ipynb): colab ready notebook
+- [rag.ipynb](rag.ipynb): notebook with rag pipeline and evaluations
 - [chunking.ipynb](notebooks/chunking.ipynb): exploration of different chunking strategies
 - [indexing.ipynb](notebooks/indexing.ipynb): exploration of different indexing strategies
 - [retrieval.ipynb](notebooks/retrieval.ipynb): exploration of different retrieval strategies
