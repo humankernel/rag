@@ -61,12 +61,12 @@ trusted-host = nexus.prod.uci.cu
 
 Since this is currently a prototype all of the main code is in a single jupyter notebook 
 
-`rag.ipynb`: notebook with rag pipeline and evaluations
-`colab.ipynb`: colab ready notebook
-`chunking.ipynb`: exploration of different chunking strategies
-`indexing.ipynb`: exploration of different indexing strategies
-`retrieval.ipynb`: exploration of different retrieval strategies
-`diagrams.ipynb`: code for creating the diagrams of the paper
+- `rag.ipynb`: notebook with rag pipeline and evaluations
+- `colab.ipynb`: colab ready notebook
+- `chunking.ipynb`: exploration of different chunking strategies
+- `indexing.ipynb`: exploration of different indexing strategies
+- `retrieval.ipynb`: exploration of different retrieval strategies
+- `diagrams.ipynb`: code for creating the diagrams of the paper
 
 ## Contributing
 
