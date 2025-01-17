@@ -6,7 +6,7 @@
 
 ## Overview 
 
-This project is a prototype developed for a [research paper](https://rcci.uci.cu/) focused on democratizing AI tools for managing PDF documents in resource-limited contexts. It serves as an advanced Retrieval-Augmented Generation (RAG) pipeline example, showcasing how AI can facilitate document management.
+This project is a simple prototype developed for a [research paper](https://github.com/humankernel/rag-paper/blob/main/rcci_template.pdf) focused on democratizing AI tools for managing PDF documents in resource-limited contexts. It serves as an advanced Retrieval-Augmented Generation (RAG) pipeline example, showcasing how AI can facilitate document management.
 
 ## Features
 
