@@ -5,3 +5,6 @@ models
 flagged
 gradio_cached_examples
 chunks.pkl
+.env
+data
+log.csv
