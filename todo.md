@@ -1,12 +1,20 @@
 
 
-- [ ] cite everything
-- [ ] UI
-- [ ] impl small demos to improve each components (w/ gradio)
+- [ ] initial chat message similar to notebooklm
+- [ ] impl citations
+- [ ] make demos to improve each components
+    - [ ] wikiQA
+    - [ ] chunking
+    - [ ] retriever
+- [ ] fix: initialize the llm only once
 
 - [ ] preprocessing
-    - [x] fix RecursiveTextSplitter
+    - [ ] fix RecursiveTextSplitter
     - [ ] preprocess pdf to extract (tables, formulas, images)
+
+- [x] impl generation
+- [ ] input sanitization (fix: stop nonsensical queries)
+- [ ] rag as a tool use
 
 - [ ] impl iterative retrieval
     - [x] impl gaps discovery
@@ -14,11 +22,7 @@
     - [x] impl reranker
     - [ ] impl contextual compression + filters
 
-- [x] impl generation
-
-- [ ] fix: initialize the llm only once
-
-- [ ] input sanitization (fix: stop unsensical queries)
+- [ ] polish wikiQA ui
 - [ ] eval retrieval
 - [ ] eval generation (individual)
 - [ ] eval generation (end-to-end)
