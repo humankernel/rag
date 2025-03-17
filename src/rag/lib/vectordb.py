@@ -1,11 +1,11 @@
 import json
 import logging
 import os
-from pathlib import Path
 import pickle
 import time
 from dataclasses import dataclass
 from itertools import batched
+from pathlib import Path
 from typing import Literal, Optional, TypedDict
 from uuid import uuid4
 
@@ -48,8 +48,8 @@ class VectorDB:
         self,
         name: str,
         splitter=RecursiveCharacterTextSplitter(chunk_size=1200, chunk_overlap=True),
-        embedding_model_path: str = settings.EMBEDDING_MODEL_PATH,
-        reranker_model_path: str = settings.RERANKER_MODEL_PATH,
+        embedding_model_path: str = settings.EMBEDDING_MODEL,
+        reranker_model_path: str = settings.RERANKER_MODEL,
         device: Literal["cuda", "cpu"] = settings.DEVICE,
     ) -> None:
         self.name = name
