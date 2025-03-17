@@ -18,7 +18,7 @@ class Settings(BaseModel):
     EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "BAAI/bge-m3")
     EMBEDDING_TOKEN_LIMIT: int = 8190
     RERANKER_MODEL: str = os.getenv("RERANKER_MODEL", "BAAI/bge-reranker-v2-m3")
-    LLM_MODEL: str = os.getenv("LLM_MODEL", "DeepSeek-R1-Distill-Qwen-1.5B-Q8_0.gguf")
+    LLM_MODEL: str = os.getenv("LLM_MODEL", "./DeepSeek-R1-Distill-Qwen-1.5B-Q8_0.gguf")
     CTX_WINDOW: int = 8192
 
     # List of additional models with names and optional paths
