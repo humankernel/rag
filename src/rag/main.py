@@ -436,7 +436,7 @@ def main() -> None:
                 f"✅ Saved to local storage at {timestamp}", visible=True
             )
 
-    demo.queue(api_open=False).launch(inbrowser=True, max_file_size="300mb")
+    demo.queue(api_open=False).launch(inbrowser=True, max_file_size="300mb", share=True)
 
 
 if __name__ == "__main__":
