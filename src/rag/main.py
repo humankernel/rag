@@ -1,6 +1,6 @@
 import time
 from functools import cache
-from typing import Generator, Literal, NotRequired, Optional, TypedDict
+from typing_extensions import Generator, Literal, NotRequired, Optional, TypedDict
 
 import gradio as gr
 

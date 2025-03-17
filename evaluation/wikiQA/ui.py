@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import wikipediaapi as wiki
 from datetime import datetime
-from typing import TypedDict
+from typing_extensions import TypedDict
 import gradio as gr
 
 # Initialize Wikipedia APIs

@@ -1,4 +1,4 @@
-from typing import TypedDict, Final
+from typing_extensions import TypedDict, Final
 
 
 class Prompt(TypedDict):

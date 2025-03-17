@@ -1,10 +1,9 @@
 import os
-from typing import Literal, Optional
 
 import torch
 from dotenv import load_dotenv
-from gradio_client.utils import TypedDict
 from pydantic import BaseModel, computed_field
+from typing_extensions import Literal, Optional, TypedDict
 
 load_dotenv()
 

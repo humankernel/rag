@@ -6,7 +6,7 @@ import time
 from dataclasses import dataclass
 from itertools import batched
 from pathlib import Path
-from typing import Literal, Optional, TypedDict
+from typing_extensions import Literal, Optional, TypedDict
 from uuid import uuid4
 
 import numpy as np
