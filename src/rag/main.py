@@ -1,63 +1,37 @@
 import time
 from functools import cache
-from typing import Generator, Literal, Optional, TypedDict
+from typing import Generator, Literal, TypedDict, Optional
 
 import gradio as gr
-from llama_cpp import Llama
-from llama_cpp.llama_speculative import LlamaPromptLookupDecoding
 
 from rag.lib.vectordb import RetrievedChunk, VectorDB
 from rag.prompt import PROMPT
 from rag.settings import settings
+from rag.lib.models import create_model
 
 
 class Message(TypedDict):
     text: str
     files: list[str]
 
+class ChatMessage(TypedDict):
+    role: Literal["system", "user", "assistant"]
+    content: str
+    metadata: Optional[dict]
 
-CTX_WINDOW = 4096
-
-model = Llama(
-    model_path=settings.LLM_MODEL_PATH,
-    device=settings.DEVICE,
-    main_gpu=0,  # Use primary GPU
-    tensor_split=[0],  # Distribute layers across GPUs if multi-GPU
-    n_gpu_layers=-1 if settings.DEVICE == "cuda" else 0,
-    n_ctx=CTX_WINDOW,
-    n_batch=1024,       # Increased batch size for better throughput (adjust based on VRAM)
-    n_threads=4 if settings.DEVICE == "cuda" else 8,  # Optimize CPU threading
-    offload_kqv=True,   # Enable memory optimization
-    flash_attn=True,    # Enable flash attention if supported
-    temperature=0.7,    # Added for sampling diversity
-    top_p=0.90,         # Slightly more focused than 0.95
-    top_k=40,           # Balanced between diversity and quality
-    repeat_penalty=1.1, # Helps reduce repetition
-    draft_model=LlamaPromptLookupDecoding(
-        max_ngram_size=7,      # Optimal for most use cases
-        num_pred_tokens=10,
-    ),
-    seed=42,            # For reproducibility
-    verbose=False,
-    # Add if your implementation supports these:
-    # rope_scaling=1.0,  # For context extension techniques
-    # logits_all=True,   # If you need all logits
-    # main_gpu=0,        # For multi-GPU setups
-)
-
-
+model = create_model(settings.LLM_MODEL_PATH)
 
 @cache
 def count_tokens(text: str) -> int:
-    return len(text) // 4
+    return len(text) // 4 # todo: use the model's token count
 
 
 def compress_history(
-    history: list[gr.ChatMessage], max_tokens: int = CTX_WINDOW
-) -> list[gr.ChatMessage]:
-    """Only keep relevant history messages (using reranking)"""
-    relevant_history = []
+    history: list[ChatMessage], max_tokens: int = settings.CTX_WINDOW
+) -> list[ChatMessage]:
+    # todo: only keep relevant prev messages to the user's query
 
+    relevant_history = []
     # Keep last messages that fit in the ctx_window
     total_tokens = 0
     for h in reversed(history):
@@ -74,26 +48,22 @@ def compress_history(
     return relevant_history
 
 
-def compress_context(chunks: list[RetrievedChunk], max_tokens: int = CTX_WINDOW) -> str:
-    relevant_context = ""
-
-    # Format the chunks
+def compress_context(chunks: list[RetrievedChunk], max_tokens: int = settings.CTX_WINDOW) -> str:
     formatted = [f"[Doc {i + 1}] {chunk.chunk.text}" for i, chunk in enumerate(chunks)]
-    relevant_context = "\n\n".join(formatted)
-    relevant_context = relevant_context[: (max_tokens - 10) * 4]
-
-    # Use LLM to clean the context
-    # todo
-
-    return relevant_context
+    context = "\n\n".join(formatted)
+    return context[: max_tokens * 4]
+    # todo: instead use LLM to clean the context
 
 
 def generate_answer(
-    history: list[gr.ChatMessage],
+    history: list[ChatMessage],
     chunks: list[RetrievedChunk],
     temperature: float = 0.7,
     max_tokens: int = 300,
-    mode: Literal["rag", "normal"] = "normal",
+    top_p: float = 0.9,
+    top_k: int = 40,
+    repeat_penalty: float = 1.1,
+    mode: Literal["rag", "normal"] = "normal"
 ) -> Generator[str, None, None]:
     assert history, "History should not be empty"
     assert all(isinstance(msg["content"], str) for msg in history), (
@@ -105,67 +75,46 @@ def generate_answer(
     relevant_history = compress_history(history)
 
     if mode == "normal" or not chunks:
-        assert tokens_hst < CTX_WINDOW, "History exceeds the ctx window"
-        response = model.create_chat_completion(
-            relevant_history,
-            temperature=temperature,
-            max_tokens=max_tokens,
-            stream=True,
-        )
+        assert tokens_hst < settings.CTX_WINDOW, "History exceeds the ctx window"
+        messages = relevant_history
+
     elif mode == "rag":
         relevant_context = compress_context(chunks)
-
-        prompt = PROMPT["generate_answer"].format(query=query, context=relevant_context)
-        tokens_pmt = count_tokens(prompt)
-
-        # prioritize the context over the chat history
-        if tokens_hst + tokens_pmt > CTX_WINDOW:
-            relevant_history = []
-            tokens_hst = 0
-        if tokens_pmt > CTX_WINDOW:
-            # todo: define what to do
-            pass
-
-        assert tokens_hst + tokens_pmt < CTX_WINDOW, (
-            "History + Prompt exceeds the ctx window"
-        )
-
-        # messages = [*relevant_history, {"role": "user", "content": prompt}]
         messages = [
-            {
-                "role": "system",
-                "content": f"The user has a question: {query} \n\n This is some context that may help answering the question: {'relevant_context'} \n\n Answer: ",
-            },
+            {"role": "system", "content": "You are a helpful assistant that answers questions based on the provided context."},
+            {"role": "user", "content": f"Context: {relevant_context}\n\nQuestion: {query}"},
         ]
+
+    try:
         response = model.create_chat_completion(
             messages,
             temperature=temperature,
             max_tokens=max_tokens,
+            top_p=top_p,
+            top_k=top_k,
+            repeat_penalty=repeat_penalty,
             stream=True,
         )
 
-    try:
         for stream in response:
             text = stream["choices"][0]["delta"].get("content", "")
             yield text
     except Exception as e:
-        print(f"Error: {e}")
+        yield f"Error: {e}"
 
 
 def ask(
     message: Message,
-    history: list[gr.ChatMessage],
+    history: list[ChatMessage],
     db: VectorDB,
-    temperature: Optional[float] = 0.75,
-    max_tokens: Optional[int] = 300,
-):
-    msg = message.get("text", "") if isinstance(message, dict) else message
-    files = message.get("files", []) if isinstance(message, dict) else []
-    response: list[gr.ChatMessage] = [{"role": "assistant", "content": ""}]
+    **params: dict,
+) -> Generator[tuple[ChatMessage, list[RetrievedChunk]], None, None]:
     start_time = time.time()
 
-    history = history or [{"role": "system", "content": "system prompt"}]
-    history.append({"role": "user", "content": msg})
+    msg = message.get("text", "") if isinstance(message, dict) else message
+    files = message.get("files", []) if isinstance(message, dict) else []
+    chunks = []
+
     # Change files from history['content']
     for h in history:
         if isinstance(h["content"], tuple):
@@ -182,17 +131,16 @@ def ask(
             return
 
         pdfs = list(filter(lambda f: f.endswith(".pdf"), files))
-        response[-1] = {
+        response = {
             "content": f"📥 Received {len(pdfs)} PDF(s). Starting indexing...",
             "metadata": {
                 "title": "🔎 Indexing...",
-                "duration": time.time() - start_time,
                 "status": "pending",
             },
         }
         yield response, []
         db.insert(pdfs)
-        response[-1] = {
+        response = {
             "content": f"Indexed {len(pdfs)} files",
             "metadata": {
                 "title": "📥 Finished Indexing",
@@ -207,7 +155,7 @@ def ask(
     # Retrieval
     chunks = []
     if msg and not db.is_empty():
-        response[-1] = {
+        response = {
             "content": "Searching relevant sources",
             "metadata": {
                 "title": "🔎 Searching...",
@@ -217,7 +165,7 @@ def ask(
         }
         yield response, chunks
         chunks = db.search(msg)
-        response[-1] = {
+        response = {
             "content": f"Retrieved {len(chunks)} relevant sources",
             "metadata": {
                 "title": f"🔎 Found {len(chunks)} relevant chunks",
@@ -228,7 +176,7 @@ def ask(
         yield response, chunks
 
     # Generation
-    response[-1] = {"role": "assistant", "content": ""}
+    response = {"role": "assistant", "content": ""}
     answer_buffer = ""
     try:
         for stream in generate_answer(
@@ -239,100 +187,60 @@ def ask(
             mode="normal" if db.is_empty() or not msg else "rag",
         ):
             answer_buffer += stream
-            response[-1]["content"] = answer_buffer
+            response["content"] = answer_buffer
             yield response, chunks
     except Exception as e:
         print(f"Error {e}")
 
 
 def main() -> None:
-    with gr.Blocks() as demo:
-        print(f"{demo.app_id=}")
+    with gr.Blocks(fill_height=True) as demo:
         db = gr.State(VectorDB("att"))
         local_storage = gr.BrowserState()
         chunks = gr.State([])
 
         with gr.Sidebar(position="left", open=False):
             gr.Markdown("# Model Settings")
-            # todo: wire up the additional params
-
-            with gr.Group():
-                model = gr.Dropdown(
-                    choices=["DeepSeek R1 Destill", "Qwen2.5 Instruct"],
-                    value="DeepSeek R1 Destill",
-                    label="Model Selection",
-                )
-            temperature = gr.Slider(
-                minimum=0.0,
-                maximum=2.0,
-                value=1.0,
-                step=0.1,
-                label="Temperature",
-                info="Lower = deterministic, Higher = creative",
+            model = gr.Dropdown(choices=[m["name"] for m in settings.MODELS], value=settings.MODELS[0]["name"])
+            temperature = gr.Slider(0.0, 2.0, value=1.0, step=0.1, label="Temperature",
+                info="Controls randomness: Lower = more deterministic, Higher = more creative."
             )
-            max_tokens = gr.Slider(
-                minimum=1,
-                maximum=4000,
-                value=512,
-                step=10,
-                label="Max Tokens",
-                info="Maximum response length",
+            top_p = gr.Slider(0.0, 1.0, value=0.9, step=0.05, label="Top-p",
+                info="Considers the smallest set of tokens whose cumulative probability exceeds p."
             )
-            top_p = gr.Slider(
-                minimum=0.0,
-                maximum=1.0,
-                value=0.9,
-                step=0.05,
-                label="Top-p (Nucleus Sampling)",
+            top_k = gr.Slider(1, 100, value=50, step=1, label="Top-k Sampling",
+                info="Limits sampling to the top K most likely tokens."
             )
-            frequency_penalty = gr.Slider(
-                minimum=0.0,
-                maximum=2.0,
-                value=0.5,
-                step=0.1,
-                label="Frequency Penalty",
-                info="Reduce repetition of common phrases",
+            max_tokens = gr.Slider(1, 4000, value=512, step=10, label="Max Tokens",
+                info="Sets the maximum number of tokens in the response."
             )
-            presence_penalty = gr.Slider(
-                minimum=0.0,
-                maximum=2.0,
-                value=0.5,
-                step=0.1,
-                label="Presence Penalty",
-                info="Encourage new topics",
+            repetition_penalty = gr.Slider(1.0, 2.0, value=1.2, step=0.1, label="Repetition Penalty",
+                info="Penalizes repeated tokens to reduce redundancy."
             )
-            top_k = gr.Slider(
-                minimum=1,
-                maximum=100,
-                value=50,
-                step=1,
-                label="Top-k Sampling",
-                info="Consider top K tokens",
+            frequency_penalty = gr.Slider(0.0, 2.0, value=0.5, step=0.1, label="Frequency Penalty",
+                info="Reduces the likelihood of repeating common phrases."
             )
-            repetition_penalty = gr.Slider(
-                minimum=1.0,
-                maximum=2.0,
-                value=1.2,
-                step=0.1,
-                label="Repetition Penalty",
-                info="Higher = less repetition",
+            presence_penalty = gr.Slider(0.0, 2.0, value=0.5, step=0.1, label="Presence Penalty",
+                info="Encourages new topics."
             )
             system_prompt = gr.Textbox(
                 value=PROMPT["system_prompt"],
                 lines=3,
                 label="System Prompt",
-                placeholder="Enter system instructions...",
+                placeholder="Enter instructions for the assistant's behavior.",
+                info="Defines the assistant's role or specific instructions."
             )
             language_strictness = gr.Radio(
                 choices=["Professional", "Informal"],
                 value="Professional",
                 label="Language Style",
+                info="Select the tone of the assistant's responses."
             )
-            saved_message = gr.Markdown("")
+
+            saved_message = gr.Markdown("", visible=False)
 
         with gr.Sidebar(position="right", open=False):
             gr.Markdown("# References")
-
             @gr.render(inputs=chunks)
             def render_chunks(chunks: list[RetrievedChunk]):
                 for chunk in chunks:
@@ -351,31 +259,37 @@ def main() -> None:
             multimodal=True,
             editable="user",
             flagging_mode="manual",
-            flagging_options=[
-                "Like",
-                "Dislike",
-                "Hallucination",
-                "Inappropriate",
-                "Harmful",
-            ],
+            flagging_options=["Like", "Dislike", "Hallucination", "Inappropriate", "Harmful"],
             flagging_dir=".",
-            additional_inputs=[db, temperature, max_tokens],
+            additional_inputs=[
+                db,
+                model,
+                temperature,
+                max_tokens,
+                top_p,
+                top_k,
+                repetition_penalty,
+                frequency_penalty,
+                presence_penalty,
+                system_prompt,
+                language_strictness
+            ],
             additional_outputs=[chunks],
             save_history=True,
         )
 
-        @demo.load(inputs=[local_storage], outputs=[temperature, max_tokens])
+        @demo.load(inputs=[local_storage], outputs=[model, temperature, max_tokens, top_p, top_k, repetition_penalty, frequency_penalty, presence_penalty, system_prompt, language_strictness])
         def load_from_local_storage(saved_values):
-            saved_values = saved_values or {"temperature": 0.75, "max_tokens": 300}
-            return saved_values["temperature"], saved_values["max_tokens"]
+            saved_values = saved_values or {"model": MODELS[0]["name"], "temperature": 0.75, "max_tokens": 300, "top_p": 0.9, "top_k": 50, "repetition_penalty": 1.2, "frequency_penalty": 0.5, "presence_penalty": 0.5, "system_prompt": PROMPT["system_prompt"], "language_strictness": "Professional"}
+            return saved_values["model"], saved_values["temperature"], saved_values["max_tokens"], saved_values["top_p"], saved_values["top_k"], saved_values["repetition_penalty"], saved_values["frequency_penalty"], saved_values["presence_penalty"], saved_values["system_prompt"], saved_values["language_strictness"]
 
         @gr.on(
-            [temperature.change, max_tokens.change],
-            inputs=[temperature, max_tokens],
+            [model.change, temperature.change, max_tokens.change, top_p.change, top_k.change, repetition_penalty.change, frequency_penalty.change, presence_penalty.change, system_prompt.change, language_strictness.change],
+            inputs=[model, temperature, max_tokens, top_p, top_k, repetition_penalty, frequency_penalty, presence_penalty, system_prompt, language_strictness],
             outputs=[local_storage],
         )
-        def save_to_local_storage(temp, max_tks):
-            return {"temperature": temp, "max_tokens": max_tks}
+        def save_to_local_storage(model, temp, max_tks, top_p, top_k, repetition_penalty, frequency_penalty, presence_penalty, system_prompt, language_strictness):
+            return {"model": model, "temperature": temp, "max_tokens": max_tks, "top_p": top_p, "top_k": top_k, "repetition_penalty": repetition_penalty, "frequency_penalty": frequency_penalty, "presence_penalty": presence_penalty, "system_prompt": system_prompt, "language_strictness": language_strictness}
 
         @gr.on(local_storage.change, outputs=[saved_message])
         def show_saved_message():

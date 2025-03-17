@@ -220,7 +220,7 @@ with gr.Blocks() as demo:
             placeholder="Prime Number",
             submit_btn=True,
         )
-    
+
         @gr.render(inputs=data)
         def content_chunks(data):
             if not data:
@@ -237,11 +237,14 @@ with gr.Blocks() as demo:
                                 level = chunk.get("level", "")
                                 title = chunk.get("title", "")
                                 tokens = chunk.get("tokens", "")
-                                text  = chunk.get("text", "") 
+                                text = chunk.get("text", "")
                                 with gr.Accordion(
-                                    open=False, label=f"level: {level} - {title} - ({tokens} tokens)"
+                                    open=False,
+                                    label=f"level: {level} - {title} - ({tokens} tokens)",
                                 ):
-                                    gr.TextArea(value=text, label=None, interactive=True)
+                                    gr.TextArea(
+                                        value=text, label=None, interactive=True
+                                    )
 
         category = gr.Dropdown(
             label="Article Category", allow_custom_value=True, interactive=True

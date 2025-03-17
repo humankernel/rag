@@ -34,7 +34,7 @@ PROMPT: Final[Prompt] = {
         "3. Bad Answer (Unsubstantiated Claims):\n"
         "   Query: 'What are the benefits of X technology?'\n"
         "   Expected Output:\n"
-        '   "X technology is the best and will revolutionize the industry." (❌ Lacks citations and specifics)\n\n'
+        '   "X technology is the best and will revolutionize the industry." (Lacks citations and specifics)\n\n'
         "**Final Output**:\n"
         "Provide a well-structured answer following the above guidelines."
     ),
